@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TinyTales - Create Account</title>
+  <link rel="stylesheet" href="register.css" />
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="card">
+
+      <div class="title">
+        <h1>Join TinyTales</h1>
+        <p>Create your account and start capturing every precious milestone.</p>
+      </div>
+
+      <div class="form-title">Create Account</div>
+
+      <form id="registerForm" novalidate>
+
+        <div class="field">
+          <label for="fullname">Full Name</label>
+          <input id="fullname" type="text" placeholder="Enter your name" />
+          <div class="error" id="fullnameError"></div>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="Enter your email" />
+          <div class="error" id="emailError"></div>
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" type="password" placeholder="Enter password (min 6 characters)" />
+          <div class="error" id="passwordError"></div>
+        </div>
+
+        <div class="field">
+          <label for="confirm">Confirm Password</label>
+          <input id="confirm" type="password" placeholder="Confirm password" />
+          <div class="error" id="confirmError"></div>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn" id="regSubmitBtn">Sign Up</button>
+        </div>
+
+        <div class="muted-center">— or —</div>
+
+        <div class="google-btn" id="quickDemoBtn" onclick="quickDemo()">
+          <span>Instant Demo Experience 🍼</span>
+        </div>
+
+        <div class="foot">
+          Already have an account?
+          <a href="login.html" class="link">Login</a>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const fullname = document.getElementById("fullname");
+      const email = document.getElementById("email");
+      const password = document.getElementById("password");
+      const confirm = document.getElementById("confirm");
+      const btn = document.getElementById("regSubmitBtn");
+
+      const fullnameError = document.getElementById("fullnameError");
+      const emailError = document.getElementById("emailError");
+      const passwordError = document.getElementById("passwordError");
+      const confirmError = document.getElementById("confirmError");
+
+      fullnameError.textContent = "";
+      emailError.textContent = "";
+      passwordError.textContent = "";
+      confirmError.textContent = "";
+
+      let valid = true;
+
+      if (fullname.value.trim() === "") {
+        fullnameError.textContent = "Full name required";
+        valid = false;
+      }
+
+      if (!email.value.includes("@") || !email.value.includes(".")) {
+        emailError.textContent = "Valid email required";
+        valid = false;
+      }
+
+      if (password.value.length < 6) {
+        passwordError.textContent = "Minimum 6 characters";
+        valid = false;
+      }
+
+      if (password.value !== confirm.value) {
+        confirmError.textContent = "Passwords do not match";
+        valid = false;
+      }
+
+      if (!valid) return;
+
+      btn.disabled = true;
+      btn.textContent = "Creating account...";
+
+      const formData = new FormData();
+      formData.append("fullname", fullname.value.trim());
+      formData.append("email", email.value.trim());
+      formData.append("password", password.value);
+
+      try {
+        const res = await fetch("api/auth.php?action=register", {
+          method: "POST",
+          body: formData
+        });
+        const data = await res.json();
+
+        if (data.success) {
+          alert("Account created successfully! 🎉 Welcome to TinyTales!");
+          window.location.href = "profile.html";
+        } else {
+          emailError.textContent = data.error || "Registration failed";
+        }
+      } catch (err) {
+        console.error("Registration error:", err);
+        emailError.textContent = "Failed to connect to backend server.";
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Sign Up";
+      }
+    });
+
+    function quickDemo() {
+      window.location.href = "dashboard.html";
+    }
+  </script>
+
+</body>
+</html>

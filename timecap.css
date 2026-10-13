@@ -1,0 +1,165 @@
+@import url('layout.css');
+
+/* Time Capsule Page Specific */
+.timecap-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.timecap-header h1 {
+  font-size: 28px;
+  color: #771212;
+}
+
+.timecap-header p {
+  opacity: 0.8;
+  color: #666;
+}
+
+.timecap-grid {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 25px;
+  align-items: start;
+}
+
+/* FORM */
+.capsule-form {
+  background: #FFF5F5;
+  padding: 26px;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+}
+
+.capsule-form h3 {
+  margin-bottom: 16px;
+  color: #771212;
+  font-size: 19px;
+}
+
+.capsule-form label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #552222;
+  margin-top: 12px;
+  margin-bottom: 4px;
+}
+
+.capsule-form input,
+.capsule-form textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 12px;
+  border: 1px solid #d45a6a;
+  background: #fff;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.capsule-form textarea {
+  resize: vertical;
+  height: 90px;
+}
+
+.capsule-form button {
+  background: linear-gradient(135deg, #DD2D4A, #BC4E4E);
+  color: #fff;
+  border: none;
+  padding: 13px 20px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  width: 100%;
+  margin-top: 16px;
+  transition: transform 0.2s;
+}
+
+.capsule-form button:hover {
+  transform: translateY(-2px);
+}
+
+/* CAPSULE LIST */
+.capsule-box {
+  background: #ffffff;
+  padding: 26px;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+  min-height: 480px;
+}
+
+.capsule {
+  background: #FFF5F5;
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 18px;
+  border: 1px solid #f2c7c7;
+  position: relative;
+  transition: transform 0.2s;
+}
+
+.capsule:hover {
+  transform: translateY(-2px);
+}
+
+.capsule.locked {
+  background: #fbf7f7;
+  border-style: dashed;
+}
+
+.capsule h4 {
+  font-size: 17px;
+  color: #3b0a0a;
+  margin-bottom: 6px;
+}
+
+.capsule p {
+  color: #555;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.capsule img,
+.capsule video,
+.capsule audio {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  margin-top: 10px;
+  border-radius: 12px;
+}
+
+.lock {
+  color: #b91c1c;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.unlock {
+  color: #2e7d32;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.delete-capsule-btn {
+  background: none;
+  border: none;
+  color: #b91c1c;
+  cursor: pointer;
+  font-size: 16px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+@media (max-width: 900px) {
+  .timecap-grid {
+    grid-template-columns: 1fr;
+  }
+}

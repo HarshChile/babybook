@@ -1,0 +1,72 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* =====================
+   SIDEBAR
+===================== */
+.sidebar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100vh;
+  background: #8b0f1f; /* deep red */
+  padding: 30px 25px;
+}
+
+/* LOGO */
+.logo{
+  color: #fff;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 50px;
+}
+
+/* NAV LIST */
+.nav-list{
+  list-style: none;
+}
+
+.nav-list li{
+  margin-bottom: 25px;
+}
+
+.nav-list a{
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 500;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 16px;
+  transition: 0.3s;
+}
+
+/* ACTIVE ITEM */
+.nav-list .active a{
+  background: #e8415c;
+}
+
+/* =====================
+   MAIN CONTENT
+===================== */
+.main-content{
+  margin-left: 260px;
+  padding: 40px;
+  background: #f8dada;
+  min-height: 100vh;
+}
+
+h1{
+  color: #3b0a0a;
+  margin-bottom: 10px;
+}
+
+p{
+  color: #6d2a2a;
+}

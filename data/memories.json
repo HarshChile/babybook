@@ -1,0 +1,52 @@
+[
+    {
+        "title": "First Smile",
+        "description": "Emma smiled for the first time after morning bath! \ud83d\udc96",
+        "date": "2026-01-12",
+        "category": "Milestone",
+        "photo_path": "https://images.unsplash.com/photo-1519689680058-324335c77eba?w=600&auto=format&fit=crop&q=80",
+        "is_favorite": true,
+        "created_at": "2026-01-12 10:30:00",
+        "_id": "6192d7cc4292a1ebc6d8d198"
+    },
+    {
+        "title": "First Roll Over",
+        "description": "Rolled completely onto her tummy and laughed out loud! \u2728",
+        "date": "2026-02-04",
+        "category": "Milestone",
+        "photo_path": "https://images.unsplash.com/photo-1544126592-807ade215a0b?w=600&auto=format&fit=crop&q=80",
+        "is_favorite": true,
+        "created_at": "2026-02-04 14:15:00",
+        "_id": "1a24e94f7b67bd274dae7378"
+    },
+    {
+        "title": "First Trip to the Park",
+        "description": "Loved watching the green leaves swaying in the breeze.",
+        "date": "2026-02-20",
+        "category": "Daily",
+        "photo_path": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&auto=format&fit=crop&q=80",
+        "is_favorite": false,
+        "created_at": "2026-02-20 16:40:00",
+        "_id": "a68898b8d07f3316da99143d"
+    },
+    {
+        "title": "Six Months Celebration! \ud83c\udf82",
+        "description": "Half a year of boundless love, soft giggles, and sweet hugs.",
+        "date": "2026-03-01",
+        "category": "Celebration",
+        "photo_path": "https://images.unsplash.com/photo-1555252333-978fead06c00?w=600&auto=format&fit=crop&q=80",
+        "is_favorite": true,
+        "created_at": "2026-03-01 11:00:00",
+        "_id": "0220d478efd12887c2af3391"
+    },
+    {
+        "title": "First BDay",
+        "description": "jhbbhjb",
+        "date": "2026-10-13",
+        "category": "Milestone",
+        "photo_path": "uploads/photos/1791905729_5f58853f.png",
+        "is_favorite": false,
+        "created_at": "2026-10-13 15:35:29",
+        "_id": "ee20fede3e509dd224f0fec2"
+    }
+]

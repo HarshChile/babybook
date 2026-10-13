@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Baby Profile - TinyTales</title>
+<link rel="stylesheet" href="profile.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <h2 class="brand">TinyTales</h2>
+  <ul class="nav-list">
+    <li class="nav-item"><a href="dashboard.html">Dashboard</a></li>
+    <li class="nav-item"><a href="addmemory.html">Memories</a></li>
+    <li class="nav-item"><a href="milestone.html">Milestones</a></li>
+    <li class="nav-item"><a href="calendar.html">Calendar</a></li>
+    <li class="nav-item"><a href="scrapbook.html">Scrapbook</a></li>
+    <li class="nav-item"><a href="timecap.html">Time Capsule</a></li>
+    <li class="nav-item"><a href="settings.html">Settings</a></li>
+  </ul>
+</nav>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-right">
+    <a href="notification.html">Notifications</a>
+    <a href="profile.html" style="background:#e53955;">Baby Profile</a>
+    <a href="home.html" class="logout-link">Logout</a>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+
+  <div class="profile-header">
+    <div>
+      <h1>Baby Profile 👶</h1>
+      <p>Tell us about your little one and keep their growth details up to date</p>
+    </div>
+  </div>
+
+  <div class="profile-card">
+
+    <div class="avatar-section">
+      <div class="avatar-box" id="avatarDisplay">
+        <span id="avatarEmoji">👶</span>
+      </div>
+      <div class="avatar-info">
+        <h3>Profile Photo</h3>
+        <p>Upload a cute photo of your baby</p>
+        <button type="button" class="change-avatar-btn" onclick="document.getElementById('avatarFile').click()">📷 Choose Photo</button>
+        <input type="file" id="avatarFile" accept="image/*" style="display:none;" onchange="previewAvatar(this)">
+      </div>
+    </div>
+
+    <form onsubmit="event.preventDefault(); saveProfile();">
+      <div class="profile-form-grid">
+
+        <div class="form-group">
+          <label for="babyName">Baby's Name *</label>
+          <input type="text" id="babyName" placeholder="e.g. Emma" required>
+        </div>
+
+        <div class="form-group">
+          <label for="birthDate">Birth Date *</label>
+          <input type="date" id="birthDate" required>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="parentNames">Parent Names</label>
+          <input type="text" id="parentNames" placeholder="e.g. Sarah & John">
+        </div>
+
+        <div class="form-group full-width">
+          <label for="bio">Bio & Sentimental Story</label>
+          <textarea id="bio" placeholder="Share something special about your baby..."></textarea>
+        </div>
+
+      </div>
+
+      <button type="button" class="save-btn" id="saveProfileBtn" onclick="saveProfile()">💾 Save Baby Profile</button>
+    </form>
+
+  </div>
+
+</main>
+
+<script src="profile.js"></script>
+</body>
+</html>

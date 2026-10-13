@@ -1,0 +1,21 @@
+[
+    {
+        "baby_name": "Emma",
+        "birth_date": "2025-07-12",
+        "parent_names": "Sarah & John",
+        "bio": "Emma is a bright, smiling angel filling our home with pure sunshine and happiness.",
+        "avatar_path": null,
+        "updated_at": "2026-10-13 15:33:52",
+        "_id": "4697d303cb7fb8be5e18d813"
+    },
+    {
+        "user_id": "9ebf0a86eae7f9238313d276",
+        "baby_name": "Emma",
+        "birth_date": "2026-10-13",
+        "parent_names": "Chile",
+        "bio": "Our sweet little miracle!",
+        "avatar_path": null,
+        "updated_at": "2026-10-13 15:33:39",
+        "_id": "be4e9b38098ac8b348cdf3f6"
+    }
+]

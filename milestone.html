@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>TinyTales – Milestones</title>
+<link rel="stylesheet" href="milestone.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- Sidebar -->
+<nav class="sidebar">
+  <h2 class="brand">TinyTales</h2>
+
+  <ul class="nav-list">
+    <li class="nav-item">
+      <a href="dashboard.html">Dashboard</a>
+    </li>
+    <li class="nav-item">
+      <a href="addmemory.html">Memories</a>
+    </li>
+    <li class="nav-item active">
+      <a href="milestone.html">Milestones</a>
+    </li>
+    <li class="nav-item">
+      <a href="calendar.html">Calendar</a>
+    </li>
+    <li class="nav-item">
+      <a href="scrapbook.html">Scrapbook</a>
+    </li>
+    <li class="nav-item">
+      <a href="timecap.html">Time Capsule</a>
+    </li>
+    <li class="nav-item">
+      <a href="settings.html">Settings</a>
+    </li>
+  </ul>
+</nav>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-right">
+    <a href="notification.html">Notifications</a>
+    <a href="profile.html">Baby Profile</a>
+    <a href="home.html" class="logout-link">Logout</a>
+  </div>
+</div>
+
+<!-- Main -->
+<main class="main">
+
+    <div class="header">
+        <div>
+            <h1>Milestones 🌟</h1>
+            <p>Track your baby's special achievements and developmental steps</p>
+        </div>
+        <button class="add-btn" onclick="openForm()">+ Add Milestone</button>
+    </div>
+
+    <div id="milestones">
+        <p style="margin-top:20px; color:#880D1E;">Loading milestones...</p>
+    </div>
+</main>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+    <div class="modal-box">
+        <h3>Add Milestone</h3>
+
+        <input type="text" id="title" placeholder="e.g. First Smile, First Steps">
+
+        <select id="category">
+            <option value="">Select category</option>
+            <option value="social">Social (Smiles, Laughs, Gestures)</option>
+            <option value="physical">Physical (Rolling, Crawling, Walking)</option>
+            <option value="language">Language (Coos, Words, Babbling)</option>
+        </select>
+
+        <input type="date" id="date">
+
+        <div class="modal-actions">
+            <button class="save-btn" onclick="saveMilestone()">Save</button>
+            <button class="cancel-btn" onclick="closeForm()">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<script src="milestone.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BabyBook Notifications</title>
+<link rel="stylesheet" href="notification.css">
+</head>
+<body>
+<div class="container">
+  <div style="margin-bottom: 15px;">
+    <a href="dashboard.html" style="color: #771212; text-decoration: none; font-weight: 600;">← Back to Dashboard</a>
+  </div>
+  <h1>Notifications <span class="badge" id="newCount">2 new</span></h1>
+  <p>Stay updated with your baby's journey</p>
+
+  <div class="tabs">
+    <button class="active" onclick="filterNotifications('all', event)">All</button>
+    <button onclick="filterNotifications('unread', event)">Unread</button>
+    <button onclick="filterNotifications('milestones', event)">Milestones</button>
+    <button onclick="filterNotifications('memories', event)">Memories</button>
+  </div>
+
+  <div class="top-actions">
+    <button class="mark-read" onclick="markAllRead()">Mark all read</button>
+    <button class="clear-all" onclick="clearAll()">Clear all</button>
+  </div>
+
+  <div class="notifications" id="notificationList">
+    <div class="notification unread" data-type="milestones">
+      <div class="icon">⭐</div>
+      <div class="content">
+        <strong>New Milestone Achieved!</strong>
+        <p>Baby's first smile was captured! Don't forget to add it to your scrapbook.</p>
+        <small>2 hours ago</small>
+      </div>
+      <div class="actions">
+        <button onclick="markRead(this)">✔</button>
+        <button onclick="deleteNotification(this)">🗑</button>
+      </div>
+    </div>
+
+    <div class="notification unread" data-type="memories">
+      <div class="icon">📷</div>
+      <div class="content">
+        <strong>Memory Added</strong>
+        <p>You added 3 new photos to your scrapbook. Keep up the great work!</p>
+        <small>1 day ago</small>
+      </div>
+      <div class="actions">
+        <button onclick="markRead(this)">✔</button>
+        <button onclick="deleteNotification(this)">🗑</button>
+      </div>
+    </div>
+
+    <div class="notification" data-type="reminder">
+      <div class="icon">📅</div>
+      <div class="content">
+        <strong>Monthly Update Reminder</strong>
+        <p>It's time to update baby's monthly milestones. What new things has your little one learned?</p>
+        <small>2 days ago</small>
+      </div>
+      <div class="actions">
+        <button onclick="deleteNotification(this)">🗑</button>
+      </div>
+    </div>
+
+    <div class="notification" data-type="tip">
+      <div class="icon">🔔</div>
+      <div class="content">
+        <strong>Scrapbook Tip</strong>
+        <p>Try adding captions to your photos to remember the special moments even better!</p>
+        <small>3 days ago</small>
+      </div>
+      <div class="actions">
+        <button onclick="deleteNotification(this)">🗑</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="notification.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TinyTales – Scrapbook</title>
+<link rel="stylesheet" href="scrapbook.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Caveat:wght@600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <h2 class="brand">TinyTales</h2>
+  <ul class="nav-list">
+    <li class="nav-item"><a href="dashboard.html">Dashboard</a></li>
+    <li class="nav-item"><a href="addmemory.html">Memories</a></li>
+    <li class="nav-item"><a href="milestone.html">Milestones</a></li>
+    <li class="nav-item"><a href="calendar.html">Calendar</a></li>
+    <li class="nav-item active"><a href="scrapbook.html">Scrapbook</a></li>
+    <li class="nav-item"><a href="timecap.html">Time Capsule</a></li>
+    <li class="nav-item"><a href="settings.html">Settings</a></li>
+  </ul>
+</nav>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-right">
+    <a href="notification.html">Notifications</a>
+    <a href="profile.html">Baby Profile</a>
+    <a href="home.html" class="logout-link">Logout</a>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+
+  <!-- HEADER -->
+  <div class="scrapbook-header">
+    <div>
+      <h1>Notebook Scrapbook 📖</h1>
+      <p>Design personalized scrapbook pages with photos, moods, and handwritten notes</p>
+    </div>
+    <div class="page-actions">
+      <button onclick="prevPage()">◀</button>
+      <span id="pageIndicator" style="font-weight:600; color:#771212; padding:0 8px;">Page 1</span>
+      <button onclick="nextPage()">▶</button>
+      <button onclick="clearScrapbook()" style="background:#ffebee; color:#b71c1c; border-color:#ef9a9a;">Clear All</button>
+    </div>
+  </div>
+
+  <!-- SCRAPBOOK GRID -->
+  <div class="scrapbook-grid">
+
+    <!-- ADD MEMORY -->
+    <div class="editor">
+      <h3>Add Scrapbook Memory</h3>
+      <input type="text" id="sbTitle" placeholder="Title (e.g. Sunny Day Smile)">
+      <input type="date" id="sbDate">
+      <select id="sbMood">
+        <option value="😊 Happy">😊 Happy</option>
+        <option value="🎉 Celebration">🎉 Celebration</option>
+        <option value="❤️ Special">❤️ Special</option>
+        <option value="✨ Magical">✨ Magical</option>
+        <option value="😴 Sweet Dreams">😴 Sweet Dreams</option>
+      </select>
+      <input type="file" id="sbImage" accept="image/*">
+      <textarea id="sbNote" placeholder="Write a sweet note or journal memory..."></textarea>
+      <button id="addScrapbookBtn" onclick="addScrapbookEntry()">Add to Scrapbook</button>
+    </div>
+
+    <!-- NOTEBOOK PAGE -->
+    <div class="notebook">
+      <h3 id="notebookHeader">Notebook — Page 1</h3>
+      <div id="scrapbookEntriesContainer" class="scrapbook-entries">
+        <p class="empty">Loading scrapbook pages...</p>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<script src="scrapbook.js"></script>
+</body>
+</html>

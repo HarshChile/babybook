@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TinyTales Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="dashboard.css">
+<style>
+  .empty-state {
+    grid-column: 1 / -1;
+    background: #FFF5F5;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    color: #771212;
+  }
+  .empty-state button {
+    margin-top: 15px;
+    background: linear-gradient(135deg, #DD2D4A, #BC4E4E);
+    border: none;
+    padding: 10px 22px;
+    border-radius: 12px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .memory-card {
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .memory-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(139, 15, 31, 0.12);
+  }
+  .memory-img {
+    position: relative;
+  }
+  .memory-tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(139, 15, 31, 0.85);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+  }
+  .fav {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 4px 8px;
+    border-radius: 50%;
+    font-size: 14px;
+  }
+</style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <h2 class="brand">TinyTales</h2>
+
+  <ul class="nav-list">
+    <li class="nav-item active"><a href="dashboard.html">Dashboard</a></li>
+    <li class="nav-item"><a href="addmemory.html">Memories</a></li>
+    <li class="nav-item"><a href="milestone.html">Milestones</a></li>
+    <li class="nav-item"><a href="calendar.html">Calendar</a></li>
+    <li class="nav-item"><a href="scrapbook.html">Scrapbook</a></li>
+    <li class="nav-item"><a href="timecap.html">Time Capsule</a></li>
+    <li class="nav-item"><a href="settings.html">Settings</a></li>
+  </ul>
+</nav>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-right">
+    <a href="notification.html">Notifications</a>
+    <a href="profile.html">Baby Profile</a>
+    <a href="home.html" class="logout-link">Logout</a>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+
+  <header>
+    <div>
+      <h1>Welcome back! 👋</h1>
+      <p id="subGreeting">Emma’s journey continues with beautiful new memories</p>
+    </div>
+    <button class="add-memory-btn" onclick="window.location.href='addmemory.html'">+ Add Memory</button>
+  </header>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="card">
+      <div class="card-icon">📸</div>
+      <div>
+        <span>Total Memories</span>
+        <b id="statMemories">0</b>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">📖</div>
+      <div>
+        <span>Journal Entries</span>
+        <b id="statJournal">0</b>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">❤️</div>
+      <div>
+        <span>Favorites</span>
+        <b id="statFavorites">0</b>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🎂</div>
+      <div>
+        <span>Upcoming Events</span>
+        <b id="statEvents">1</b>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECENT MEMORIES -->
+  <section class="memories-section">
+    <div class="memories-header">
+      <h2>Recent Memories</h2>
+      <a href="addmemory.html" class="view-all">View All →</a>
+    </div>
+
+    <div class="memory-grid" id="memoryGrid">
+      <div class="empty-state">
+        <p>Loading your precious baby memories...</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  loadDashboardData();
+});
+
+async function loadDashboardData() {
+  try {
+    const res = await fetch("api/stats.php");
+    const data = await res.json();
+
+    if (data.success) {
+      // Update Baby Greeting
+      if (data.baby_name) {
+        document.getElementById("subGreeting").textContent =
+          `${data.baby_name}’s journey continues with beautiful new memories`;
+      }
+
+      // Update Stats
+      if (data.stats) {
+        document.getElementById("statMemories").textContent = data.stats.total_memories ?? 0;
+        document.getElementById("statJournal").textContent = data.stats.journal_entries ?? 0;
+        document.getElementById("statFavorites").textContent = data.stats.favorites ?? 0;
+        document.getElementById("statEvents").textContent = data.stats.upcoming_events ?? 1;
+      }
+
+      // Update Recent Memories
+      const grid = document.getElementById("memoryGrid");
+      if (data.recent_memories && data.recent_memories.length > 0) {
+        grid.innerHTML = "";
+        data.recent_memories.forEach(m => {
+          const card = document.createElement("div");
+          card.className = "memory-card";
+          card.onclick = () => window.location.href = "addmemory.html";
+          
+          const tag = m.category || "Memory";
+          const favIcon = m.is_favorite ? "❤️" : "🤍";
+
+          card.innerHTML = `
+            <div class="memory-img">
+              <img src="${m.photo_url || m.photo_path}" alt="${m.title}" onerror="this.src='https://via.placeholder.com/300?text=Photo'">
+              <span class="memory-tag">${tag}</span>
+              <span class="fav">${favIcon}</span>
+            </div>
+            <div class="memory-content">
+              <h3>${escapeHtml(m.title)}</h3>
+              <p>${escapeHtml(m.description || '')}</p>
+              <small>📅 ${m.date || ''}</small>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+      } else {
+        grid.innerHTML = `
+          <div class="empty-state">
+            <p>No memories added yet. Start capturing precious moments!</p>
+            <button onclick="window.location.href='addmemory.html'">+ Add First Memory</button>
+          </div>
+        `;
+      }
+    }
+  } catch (err) {
+    console.error("Error loading dashboard data:", err);
+  }
+}
+
+function escapeHtml(text) {
+  if (!text) return "";
+  return text.replace(/[&<>"']/g, function(m) {
+    return {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#039;'
+    }[m];
+  });
+}
+</script>
+
+</body>
+</html>

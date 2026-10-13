@@ -1,0 +1,74 @@
+:root {
+  --dark-red: #880D1E;
+  --red: #DD2D4A;
+  --light-pink: #FDCECE;
+  --soft-pink: #F4B7B7;
+  --med-red: #BC4E4E;
+  --deep-red: #771212;
+  --white: #fff;
+  --muted: #666;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  background: var(--dark-red);
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Brand */
+.brand {
+  color: var(--white);
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* NAV LIST */
+.nav-list {
+  list-style: none;
+  flex-grow: 1;
+}
+
+.nav-item {
+  margin-bottom: 12px;
+}
+
+.nav-item a {
+  display: flex;
+  align-items: center;
+  padding: 14px 18px;
+  border-radius: 14px;
+  color: var(--white);
+  text-decoration: none;
+  font-size: 16px;
+  transition: background 0.2s ease;
+}
+
+.nav-item.active a,
+.nav-item a:hover {
+  background: var(--red);
+}
+
+/* SETTINGS */
+.sidebar-settings a {
+  display: block;
+  padding: 14px;
+  border-radius: 14px;
+  background: var(--deep-red); /* FIXED */
+  color: var(--white);
+  text-decoration: none;
+  text-align: center;
+  font-size: 15px;
+  transition: background 0.2s ease;
+}
+
+.sidebar-settings a:hover {
+  background: var(--red);
+}

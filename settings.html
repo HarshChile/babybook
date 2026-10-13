@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TinyTales - Settings</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="settings.css">
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <h2 class="brand">TinyTales</h2>
+
+  <ul class="nav-list">
+    <li class="nav-item"><a href="dashboard.html">Dashboard</a></li>
+    <li class="nav-item"><a href="addmemory.html">Memories</a></li>
+    <li class="nav-item"><a href="milestone.html">Milestones</a></li>
+    <li class="nav-item"><a href="calendar.html">Calendar</a></li>
+    <li class="nav-item"><a href="scrapbook.html">Scrapbook</a></li>
+    <li class="nav-item"><a href="timecap.html">Time Capsule</a></li>
+    <li class="nav-item active"><a href="settings.html">Settings</a></li>
+  </ul>
+</nav>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-right">
+    <a href="notification.html">Notifications</a>
+    <a href="profile.html">Baby Profile</a>
+    <a href="home.html" class="logout-link">Logout</a>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+
+  <header>
+    <div>
+      <h1>Settings ⚙️</h1>
+      <p>Customize your TinyTales baby scrapbook experience and notification preferences</p>
+    </div>
+    <button class="save-settings-btn" id="saveSettingsBtn" onclick="saveSettings()">Save Changes</button>
+  </header>
+
+  <div class="settings-grid">
+
+    <!-- CARD 1: PROFILE PREFERENCES -->
+    <div class="settings-card">
+      <div class="settings-card-header">
+        <div class="settings-card-icon">👶</div>
+        <h2>Profile & Family</h2>
+      </div>
+
+      <div class="form-group">
+        <label for="babyNameInput">Baby's Name</label>
+        <input type="text" id="babyNameInput" placeholder="Emma">
+      </div>
+
+      <div class="form-group">
+        <label for="parentEmailInput">Parent Contact Email</label>
+        <input type="email" id="parentEmailInput" placeholder="emma.parents@tinytales.app">
+      </div>
+
+      <div class="form-group" style="margin-top:20px;">
+        <label>Baby Profile Details</label>
+        <p style="font-size:13px; color:#666; margin-bottom:10px;">Update baby's birthdate, parent names, and avatar picture.</p>
+        <a href="profile.html" style="color:#DD2D4A; font-size:14px; font-weight:600; text-decoration:none;">Go to Baby Profile Page →</a>
+      </div>
+    </div>
+
+    <!-- CARD 2: NOTIFICATIONS -->
+    <div class="settings-card">
+      <div class="settings-card-header">
+        <div class="settings-card-icon">🔔</div>
+        <h2>Notifications & Alerts</h2>
+      </div>
+
+      <div class="toggle-item">
+        <div class="toggle-info">
+          <strong>Email Alerts</strong>
+          <span>Receive milestone reminders and updates via email</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="emailToggle" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="toggle-item">
+        <div class="toggle-info">
+          <strong>Milestone Reminders</strong>
+          <span>Timely nudges to capture monthly developmental firsts</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="milestoneToggle" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="toggle-item">
+        <div class="toggle-info">
+          <strong>Time Capsule Reminders</strong>
+          <span>Notifications when a locked memory capsule is ready</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="capsuleToggle" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- CARD 3: PRIVACY & DATA -->
+    <div class="settings-card">
+      <div class="settings-card-header">
+        <div class="settings-card-icon">🔒</div>
+        <h2>Privacy & Protection</h2>
+      </div>
+
+      <div class="toggle-item">
+        <div class="toggle-info">
+          <strong>Private Memories</strong>
+          <span>Keep all uploaded photos and journal notes private</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="privacyToggle" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="toggle-item">
+        <div class="toggle-info">
+          <strong>High-Resolution Photo Storage</strong>
+          <span>Preserve original photo resolution on disk</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="hdPhotoToggle" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div style="margin-top:20px; padding-top:15px; border-top:1px solid #f0d0d0;">
+        <button type="button" onclick="saveSettings()" style="width:100%; background:#8b0f1f; color:#fff; border:none; padding:12px; border-radius:12px; font-weight:600; cursor:pointer;">
+          💾 Save All Settings
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<script src="settings.js"></script>
+</body>
+</html>

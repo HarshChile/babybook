@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TinyTales - Baby Memory Book</title>
+
+    <link rel="stylesheet" href="home.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fffaf8;
+            color: #443b42;
+        }
+
+        /* NAVBAR */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: #ffffff;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 700;
+            color: #443b42;
+        }
+
+        .logo span {
+            background: #ff8fa3;
+            color: white;
+            padding: 8px 10px;
+            border-radius: 10px;
+            margin-right: 5px;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .register-btn,
+        .login-btn {
+            text-decoration: none;
+            padding: 10px 23px;
+            border-radius: 25px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .register-btn {
+            background: #ff8fa3;
+            color: white;
+        }
+
+        .login-btn {
+            border: 1px solid #ff8fa3;
+            color: #f47791;
+        }
+
+        .register-btn:hover {
+            background: #f47791;
+        }
+
+        .login-btn:hover {
+            background: #fff0f3;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            padding: 65px 8%;
+            background: linear-gradient(120deg, #fff0f2, #fffaf5);
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 45px;
+            line-height: 1.3;
+            margin-bottom: 22px;
+            color: #443b42;
+        }
+
+        .hero-text h1 span {
+            color: #f47791;
+        }
+
+        .hero-text p {
+            color: #766a70;
+            font-size: 15px;
+            line-height: 1.9;
+            margin-bottom: 28px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .primary-btn,
+        .secondary-btn {
+            display: inline-block;
+            padding: 13px 25px;
+            border-radius: 30px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .primary-btn {
+            background: #ff8fa3;
+            color: white;
+            border: 1px solid #ff8fa3;
+        }
+
+        .secondary-btn {
+            background: white;
+            color: #f47791;
+            border: 1px solid #ff8fa3;
+        }
+
+        .primary-btn:hover {
+            background: #f47791;
+            transform: translateY(-2px);
+        }
+
+        .secondary-btn:hover {
+            background: #fff0f3;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 490px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(100, 60, 70, 0.10);
+        }
+
+        /* FEATURES SECTION */
+        .section {
+            padding: 65px 8%;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .section > p {
+            color: #766a70;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 18px;
+            box-shadow: 0 5px 22px rgba(100, 60, 70, 0.06);
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(100, 60, 70, 0.10);
+        }
+
+        .icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+            color: #f47791;
+        }
+
+        .feature-card h3 {
+            font-size: 17px;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: #766a70;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        /* CTA SECTION */
+        .cta {
+            text-align: center;
+            padding: 60px 20px;
+            background: #fff0f2;
+        }
+
+        .cta h2 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: #766a70;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 22px;
+            background: white;
+            color: #766a70;
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .hero {
+                gap: 30px;
+                padding: 50px 6%;
+            }
+
+            .hero-text h1 {
+                font-size: 35px;
+            }
+
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                padding: 18px 5%;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .nav-actions {
+                gap: 8px;
+            }
+
+            .register-btn,
+            .login-btn {
+                padding: 8px 13px;
+                font-size: 12px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 45px 6%;
+            }
+
+            .hero-text h1 {
+                font-size: 32px;
+            }
+
+            .hero-text p {
+                font-size: 14px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image img {
+                height: 260px;
+            }
+
+            .section {
+                padding: 45px 6%;
+            }
+
+            .section h2 {
+                font-size: 27px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .cta h2 {
+                font-size: 25px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+
+        <div class="logo">
+            <span>TT</span> TinyTales
+        </div>
+
+        <div class="nav-actions">
+            <a href="register.html" class="register-btn">Register</a>
+            <a href="login.html" class="login-btn">Login</a>
+        </div>
+
+    </nav>
+
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <h1>
+                Cherish Every
+                <span>Precious Moment</span>
+            </h1>
+
+            <p>
+                Create a beautiful digital scrapbook for your little one's journey.
+                Capture milestones, memories, and magical moments in one special place.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="register.html" class="primary-btn">
+                    Start Your Scrapbook
+                </a>
+
+                <a href="learnmore.html" class="secondary-btn">
+                    Learn More
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+
+            <img
+                src="https://res.cloudinary.com/dvypiwn4m/image/upload/v1767337838/lucid-origin_Here_s_a_clean_ready-to-use_prompt_you_can_copy_into_any_image_generator_to_ge-0_xqdqld.jpg"
+                alt="Baby Room">
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES SECTION -->
+    <section class="section">
+
+        <h2>Everything You Need</h2>
+
+        <p>
+            All the tools to preserve your baby's precious moments
+            in a beautiful, organized way.
+        </p>
+
+        <div class="features">
+
+            <div class="feature-card">
+                <div class="icon">★</div>
+                <h3>Track Milestones</h3>
+                <p>Record precious first moments and achievements.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon">📅</div>
+                <h3>Memory Calendar</h3>
+                <p>View memories organized by date.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon">📸</div>
+                <h3>Photo Memories</h3>
+                <p>Create beautiful photo collections.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon">📖</div>
+                <h3>Custom Scrapbook</h3>
+                <p>Design personalized scrapbook pages.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA SECTION -->
+    <section class="cta">
+
+        <h2>Ready to Start Your Journey?</h2>
+
+        <p>
+            Create your baby's digital scrapbook today
+            and treasure every moment forever.
+        </p>
+
+        <a href="register.html" class="primary-btn">
+            Get Started Now
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 TinyTales • Made with ❤️
+    </footer>
+
+</body>
+</html>

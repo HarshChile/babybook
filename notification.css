@@ -1,0 +1,159 @@
+  /* Color Palette */
+  :root {
+    --dark-red: #880D1E;
+    --red: #DD2D4A;
+    --light-pink: #FDCECE;
+    --pink: #F4B7B7;
+    --medium-red: #BC4E4E;
+    --deep-red: #771212;
+  }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff5f5;
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: var(--red);
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+
+  header nav a {
+    margin: 0 0.8rem;
+    color: white;
+    text-decoration: none;
+  }
+
+  header nav a:hover {
+    text-decoration: underline;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  h1 {
+    color: var(--deep-red);
+    margin-bottom: 0.2rem;
+  }
+
+  h2 small {
+    color: #555;
+  }
+
+  .notifications {
+    margin-top: 1rem;
+  }
+
+  .notification {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border-left: 6px solid var(--pink);
+    transition: 0.3s;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+
+  .notification.unread {
+    border-left-color: var(--red);
+    background-color: var(--FDCECE);
+  }
+
+  .notification .content {
+    flex: 1;
+    margin-left: 1rem;
+  }
+
+  .notification .content p {
+    margin: 0.3rem 0 0 0;
+    color: #555;
+  }
+
+  .notification .actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .notification button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--deep-red);
+  }
+
+  .notification button:hover {
+    color: var(--red);
+  }
+
+  .tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .tabs button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--pink);
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .tabs button.active, .tabs button:hover {
+    background-color: var(--red);
+    color: white;
+  }
+
+  .top-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .top-actions button {
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .top-actions .mark-read {
+    background-color: var(--pink);
+    color: var(--deep-red);
+  }
+
+  .top-actions .clear-all {
+    background-color: var(--red);
+    color: white;
+  }
+
+  .top-actions button:hover {
+    opacity: 0.8;
+  }
+
+  .badge {
+    background-color: var(--red);
+    color: white;
+    border-radius: 50%;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+  }
+

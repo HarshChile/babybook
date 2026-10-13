@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TinyTales – Time Capsule</title>
+<link rel="stylesheet" href="timecap.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <h2 class="brand">TinyTales</h2>
+  <ul class="nav-list">
+    <li class="nav-item"><a href="dashboard.html">Dashboard</a></li>
+    <li class="nav-item"><a href="addmemory.html">Memories</a></li>
+    <li class="nav-item"><a href="milestone.html">Milestones</a></li>
+    <li class="nav-item"><a href="calendar.html">Calendar</a></li>
+    <li class="nav-item"><a href="scrapbook.html">Scrapbook</a></li>
+    <li class="nav-item active"><a href="timecap.html">Time Capsule</a></li>
+    <li class="nav-item"><a href="settings.html">Settings</a></li>
+  </ul>
+</nav>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-right">
+    <a href="notification.html">Notifications</a>
+    <a href="profile.html">Baby Profile</a>
+    <a href="home.html" class="logout-link">Logout</a>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+
+  <div class="timecap-header">
+    <div>
+      <h1>Time Capsule ⏳</h1>
+      <p>Save memories now, open them in the future 💌</p>
+    </div>
+  </div>
+
+  <div class="timecap-grid">
+
+    <!-- FORM -->
+    <div class="capsule-form">
+      <h3>Add Time Capsule</h3>
+      <label for="title">Capsule Title</label>
+      <input type="text" id="title" placeholder="e.g. Open on Emma's 18th Birthday">
+
+      <label for="message">Message for the Future</label>
+      <textarea id="message" placeholder="Dear Emma, when you read this in the future..."></textarea>
+
+      <label for="unlockDate">Unlock Date</label>
+      <input type="date" id="unlockDate">
+
+      <label for="media">Attach Photo / Video / Audio</label>
+      <input type="file" id="media" accept="image/*,video/*,audio/*">
+
+      <button type="button" id="saveCapsuleBtn">Lock in Capsule 🔒</button>
+    </div>
+
+    <!-- LIST -->
+    <div class="capsule-box" id="capsuleBox">
+      <p>Loading time capsules...</p>
+    </div>
+
+  </div>
+
+</main>
+
+<script src="timecap.js"></script>
+</body>
+</html>

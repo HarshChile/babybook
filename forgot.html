@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TinyTales - Forgot Password</title>
+  <link rel="stylesheet" href="forgot.css" />
+</head>
+
+<body>
+  <div class="forgot-container">
+    <div class="top-info">
+      <h1>Forgot Your Password?</h1>
+      <p>Enter your registered email below, and we’ll send you instructions to reset it.</p>
+    </div>
+
+    <!-- 🔐 RESET FORM -->
+    <form id="resetForm" novalidate>
+      <div class="input-group">
+        <br>
+        <input type="email" id="email" placeholder="Enter your registered email" required />
+        <div class="error" id="emailError"></div>
+        <br><br>
+      </div>
+
+      <div class="input-group">
+        <button type="submit" id="resetBtn">Send Reset Link</button>
+      </div>
+    </form>
+
+    <a href="login.html" class="back-link">← Back to Login</a>
+  </div>
+
+  <script>
+    document.getElementById("resetForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value.trim();
+      const emailError = document.getElementById("emailError");
+      emailError.textContent = "";
+
+      if (!email || !email.includes("@")) {
+        emailError.textContent = "Please enter a valid email address.";
+        return;
+      }
+
+      const btn = document.getElementById("resetBtn");
+      btn.disabled = true;
+      btn.textContent = "Sending...";
+
+      setTimeout(() => {
+        alert("If an account exists for " + email + ", a password reset link has been dispatched to your inbox! 📧");
+        window.location.href = "login.html";
+      }, 800);
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Page Background */
+body {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  background-image: url('https://i.pinimg.com/1200x/91/09/fb/9109fb020324ab89af673614eb20307b.jpg');
+  background-repeat: repeat;
+  background-size: 420px;
+  background-position: top center;
+  background-attachment: fixed;
+  background-color: #F4B7B7;
+}
+
+/* Card */
+.forgot-container {
+  width: 420px;
+  padding: 40px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 10px 25px rgba(136, 13, 30, 0.25);
+  text-align: center;
+}
+
+/* Heading */
+.forgot-container h1 {
+  color: #880D1E;
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+/* Text */
+.forgot-container p {
+  color: #771212;
+  font-size: 15px;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+/* Input */
+.forgot-container input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid #F4B7B7;
+  font-size: 15px;
+  margin-bottom: 20px;
+  outline: none;
+}
+
+.forgot-container input:focus {
+  border-color: #DD2D4A;
+  box-shadow: 0 0 6px rgba(221, 45, 74, 0.35);
+}
+
+/* Button */
+.forgot-container button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 14px;
+  background: #DD2D4A;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.forgot-container button:hover {
+  background: #BC4E4E;
+}
+
+/* Back Link */
+.back-link {
+  display: inline-block;
+  margin-top: 18px;
+  font-size: 14px;
+  color: #880D1E;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+  color: #771212;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .forgot-container {
+    width: 90%;
+    padding: 30px;
+  }
+}

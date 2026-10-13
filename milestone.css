@@ -1,0 +1,187 @@
+@import url('layout.css');
+
+/* Milestone Specific Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.header h1 {
+    color: #771212;
+    font-size: 28px;
+}
+
+.header p {
+    color: #666;
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+.add-btn {
+    background: linear-gradient(135deg, #DD2D4A, #BC4E4E);
+    color: white;
+    border: none;
+    padding: 12px 26px;
+    border-radius: 14px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.add-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(221, 45, 74, 0.3);
+}
+
+/* Milestone Cards */
+.card {
+    background: white;
+    border-radius: 18px;
+    padding: 22px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(139, 15, 31, 0.08);
+}
+
+.card-left {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.card-left strong {
+    font-size: 16px;
+    color: #3b0a0a;
+}
+
+.icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #F4B7B7;
+    color: #880D1E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.tag {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-top: 6px;
+    display: inline-block;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.social { background: #FDCECE; color: #771212; }
+.physical { background: #F4B7B7; color: #771212; }
+.language { background: #BC4E4E; color: white; }
+
+.date {
+    font-size: 13px;
+    border: 1px solid #FDCECE;
+    padding: 6px 14px;
+    border-radius: 20px;
+    color: #771212;
+    background: #fff8f8;
+}
+
+.delete-milestone-btn {
+    background: none;
+    border: none;
+    color: #880D1E;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+    padding: 6px;
+}
+
+.delete-milestone-btn:hover {
+    color: #DD2D4A;
+}
+
+.card-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+
+.modal-box {
+    background: white;
+    padding: 28px;
+    border-radius: 20px;
+    width: 360px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.modal-box h3 {
+    margin-bottom: 18px;
+    color: #880D1E;
+    font-size: 20px;
+}
+
+.modal-box input,
+.modal-box select {
+    width: 100%;
+    padding: 11px;
+    margin-bottom: 14px;
+    border-radius: 10px;
+    border: 1px solid #d45a6a;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.save-btn {
+    background: #DD2D4A;
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.cancel-btn {
+    background: #FDCECE;
+    color: #771212;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+}
