@@ -5,353 +5,7 @@
 <title>TinyTales - Memory Timeline</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="layout.css">
-
-<style>
-:root {
-  --dark-red: #7b1620;
-  --red: #d45a6a;
-  --light-pink: #FDCECE;
-  --soft-pink: #F4B7B7;
-  --med-red: #BC4E4E;
-  --white: #fff;
-  --muted: #666;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', Arial, sans-serif;
-}
-
-body {
-  display: flex;
-  min-height: 100vh;
-  background: var(--light-pink);
-}
-
-/* ================= SIDEBAR ================= */
-.sidebar {
-  width: 240px;
-  background: #8b0f1f;
-  padding: 24px 20px;
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-  position: fixed;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  z-index: 10;
-}
-
-.brand {
-  color: #fff;
-  font-size: 28px;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.nav-list {
-  list-style: none;
-}
-
-.nav-item {
-  margin-bottom: 18px;
-}
-
-.nav-item a {
-  display: block;
-  padding: 14px 18px;
-  border-radius: 14px;
-  text-decoration: none;
-  color: #fff;
-  font-size: 16px;
-}
-
-.nav-item.active a {
-  background: #e53955;
-}
-
-/* ================= MAIN ================= */
-.main {
-  flex: 1;
-  margin-left: 240px;
-  padding: 35px 40px;
-}
-
-.timeline-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-bottom: 25px;
-}
-
-.timeline-header h2 {
-  font-size: 28px;
-  color: #580a14;
-}
-
-.timeline-header p {
-  color: #7b1620;
-  font-size: 15px;
-}
-
-.timeline-controls {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-bottom: 30px;
-}
-
-.timeline-controls select,
-.timeline-controls button {
-  padding: 10px 16px;
-  border-radius: 10px;
-  border: 1px solid #d45a6a;
-  background: #fff;
-  font-size: 14px;
-  font-family: inherit;
-  cursor: pointer;
-}
-
-.add-btn-primary {
-  background: linear-gradient(135deg, #DD2D4A, #BC4E4E) !important;
-  color: #fff !important;
-  border: none !important;
-  font-weight: 600;
-  padding: 10px 22px !important;
-}
-
-/* ================= TIMELINE GRID ================= */
-.memories {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 28px;
-}
-
-.memory-card {
-  background: #fff;
-  border-radius: 18px;
-  padding: 16px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-.memory-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 24px rgba(123, 22, 32, 0.15);
-}
-
-.card-img-wrap {
-  position: relative;
-  width: 100%;
-  height: 210px;
-  border-radius: 14px;
-  overflow: hidden;
-  margin-bottom: 12px;
-}
-
-.card-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.card-tag {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: rgba(123, 22, 32, 0.85);
-  color: #fff;
-  font-size: 11px;
-  padding: 4px 10px;
-  border-radius: 20px;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-.card-fav {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 4px 8px;
-  border-radius: 50%;
-  font-size: 13px;
-}
-
-.memory-card h3 {
-  font-size: 18px;
-  color: #3b0a0a;
-  margin-bottom: 6px;
-}
-
-.memory-card p {
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.5;
-  flex: 1;
-}
-
-.date {
-  font-size: 13px;
-  color: var(--med-red);
-  margin-top: 10px;
-  font-weight: 500;
-}
-
-/* ================= ADD MODAL ================= */
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.55);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 100;
-  padding: 20px;
-}
-
-.modal {
-  background: #fff;
-  width: 100%;
-  max-width: 520px;
-  border-radius: 20px;
-  padding: 28px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-}
-
-.modal h2 {
-  color: #7b1620;
-  margin-bottom: 15px;
-}
-
-.modal label {
-  display: block;
-  margin-top: 12px;
-  font-weight: 600;
-  font-size: 13px;
-  color: #443b42;
-}
-
-.modal input,
-.modal textarea,
-.modal select {
-  width: 100%;
-  padding: 10px 12px;
-  margin-top: 6px;
-  border-radius: 10px;
-  border: 1px solid #d45a6a;
-  font-family: inherit;
-  font-size: 14px;
-}
-
-.modal textarea {
-  resize: vertical;
-  height: 80px;
-}
-
-.modal-footer {
-  display: flex;
-  justify-content: flex-end;
-  gap: 12px;
-  margin-top: 22px;
-}
-
-.cancel-btn {
-  background: var(--soft-pink);
-  border: none;
-  padding: 10px 18px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 600;
-  color: #7b1620;
-}
-
-.add-btn {
-  background: #8b0f1f;
-  color: #fff;
-  border: none;
-  padding: 10px 22px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-/* ================= PREVIEW MODAL ================= */
-.preview-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.65);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 200;
-  padding: 20px;
-}
-
-.preview-modal {
-  background: #fff;
-  width: 100%;
-  max-width: 600px;
-  border-radius: 22px;
-  padding: 25px;
-  box-shadow: 0 12px 35px rgba(0,0,0,0.3);
-}
-
-.preview-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.preview-modal img {
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-  border-radius: 14px;
-  margin-bottom: 15px;
-}
-
-.preview-actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
-  padding-top: 15px;
-  border-top: 1px solid #eee;
-}
-
-.fav-btn {
-  background: #FFF0F2;
-  border: 1px solid #ff8fa3;
-  padding: 8px 16px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.delete-btn {
-  background: #ffe3e3;
-  color: #b01020;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 600;
-}
-</style>
+<link rel="stylesheet" href="addmemory.css">
 </head>
 
 <body>
@@ -379,11 +33,11 @@ body {
   </div>
 </div>
 
-<!-- MAIN -->
+<!-- MAIN CONTENT -->
 <main class="main">
   <div class="timeline-header">
     <div>
-      <h2>Baby Memory Timeline 📸</h2>
+      <h1>Baby Memory Timeline 📸</h1>
       <p>Organized chronologically to celebrate every moment of your baby's growth</p>
     </div>
     <button class="add-btn-primary" onclick="openModal()">+ Add Memory</button>
@@ -420,13 +74,13 @@ body {
   <div class="modal">
     <h2>Add New Memory</h2>
 
-    <label>Title *</label>
+    <label for="title">Title *</label>
     <input id="title" placeholder="e.g. First Smile, First Steps">
 
-    <label>Date *</label>
+    <label for="date">Date *</label>
     <input type="date" id="date">
 
-    <label>Category</label>
+    <label for="category">Category</label>
     <select id="category">
       <option value="Milestone">Milestone</option>
       <option value="Daily">Daily Life</option>
@@ -435,10 +89,10 @@ body {
       <option value="Holiday">Holiday & Outing</option>
     </select>
 
-    <label>Description / Note</label>
+    <label for="desc">Description / Note</label>
     <textarea id="desc" placeholder="What made this moment so special?"></textarea>
 
-    <label>Photo * (Stored on Disk)</label>
+    <label for="image">Photo * (Stored on Disk)</label>
     <input type="file" id="image" accept="image/*">
 
     <div class="modal-footer">
@@ -457,7 +111,7 @@ body {
     </div>
 
     <img id="pImg" src="" alt="Memory">
-    <h3 id="pTitle" style="color:#3b0a0a; margin-bottom:8px;"></h3>
+    <h3 id="pTitle" style="color:#771212; margin-bottom:8px;"></h3>
     <p id="pDesc" style="color:#555; line-height:1.6;"></p>
     <div class="date" id="pDate"></div>
 
