@@ -5,5 +5,12 @@
         "password_hash": "$2y$10$8usLB7uDI7GOPlnbPLFz1Or9PHsgjrM3W4mOEcBbvc.nOCapZrcha",
         "created_at": "2026-10-13 15:33:39",
         "_id": "9ebf0a86eae7f9238313d276"
+    },
+    {
+        "name": "Addy",
+        "email": "adhi25@gmail.com",
+        "password_hash": "$2y$10$Noue/bfqvmEF5ssy280Mj.MK0vIjduhziRpdYc53AJeZz7YYHnc7S",
+        "created_at": "2026-10-27 17:12:22",
+        "_id": "9399ed5e316a4ade6da45a95"
     }
 ]
