@@ -17,12 +17,12 @@ if %ERRORLEVEL% neq 0 (
 )
 
 echo Running database integrity checks...
-php migrate.php
+php -d display_startup_errors=0 migrate.php
 echo.
 echo Server running at: http://localhost:8000/home.html
 echo Database: Local JSON fallback active in data/ (or MongoDB if configured)
 echo Opening your browser to http://localhost:8000/home.html ...
 echo.
 start "" http://localhost:8000/home.html
-php -S localhost:8000
+php -d display_startup_errors=0 -S localhost:8000
 pause
