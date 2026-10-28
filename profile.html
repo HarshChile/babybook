@@ -43,6 +43,19 @@
     </div>
   </div>
 
+  <!-- BABY PROFILE SWITCHER -->
+  <div style="display:flex; justify-content:space-between; align-items:center; background:#fff; padding:14px 20px; border-radius:16px; margin-bottom:20px; box-shadow:0 2px 10px rgba(0,0,0,0.03);">
+    <div style="display:flex; align-items:center; gap:12px;">
+      <span style="font-weight:600; color:#555; font-size:14px;">Select Child:</span>
+      <select id="babySelector" onchange="switchBaby(this.value)" style="padding:7px 14px; border-radius:10px; border:1px solid #e0c8c8; font-family:inherit; font-size:14px; color:#333; outline:none; background:#FFF8F8;">
+        <option value="">Loading children...</option>
+      </select>
+    </div>
+    <button type="button" onclick="promptNewBaby()" style="background:#8b0f1f; color:#fff; border:none; padding:8px 16px; border-radius:10px; font-weight:500; cursor:pointer; font-size:13px;">
+      + Add Another Baby 🍼
+    </button>
+  </div>
+
   <div class="profile-card">
 
     <div class="avatar-section">
@@ -82,13 +95,16 @@
 
       </div>
 
-      <button type="button" class="save-btn" id="saveProfileBtn" onclick="saveProfile()">💾 Save Baby Profile</button>
+      <div style="display:flex; gap:12px; margin-top:20px;">
+        <button type="button" class="save-btn" id="saveProfileBtn" onclick="saveProfile()">💾 Save Baby Profile</button>
+      </div>
     </form>
 
   </div>
 
 </main>
 
+<script src="api-client.js"></script>
 <script src="profile.js"></script>
 </body>
 </html>

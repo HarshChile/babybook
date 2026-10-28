@@ -3,7 +3,8 @@
  * BabyBook / TinyTales
  */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+    await API.requireAuth();
     const dateInput = document.getElementById("date");
     if (dateInput) {
         dateInput.value = new Date().toISOString().split("T")[0];
@@ -23,8 +24,7 @@ async function loadMilestones() {
     const container = document.getElementById("milestones");
 
     try {
-        const res = await fetch("api/milestones.php");
-        const data = await res.json();
+        const data = await API.fetch("api/milestones.php");
 
         if (data.success) {
             container.innerHTML = "";
@@ -70,7 +70,12 @@ async function loadMilestones() {
         }
     } catch (err) {
         console.error("Error loading milestones:", err);
-        container.innerHTML = "<p>Unable to load milestones from server.</p>";
+        container.innerHTML = `
+            <div style="background:#FFF5F5; border:1px solid #F4B7B7; border-radius:15px; padding:24px; margin-top:25px; text-align:center; color:#771212;">
+                <h4>⚠️ Backend Connection Notice</h4>
+                <p style="font-size:14px; opacity:0.9;">${escapeHtml(err.message)}</p>
+            </div>
+        `;
     }
 }
 
@@ -90,11 +95,10 @@ async function saveMilestone() {
     formData.append("date", date);
 
     try {
-        const res = await fetch("api/milestones.php", {
+        const data = await API.fetch("api/milestones.php", {
             method: "POST",
             body: formData
         });
-        const data = await res.json();
 
         if (data.success) {
             document.getElementById("title").value = "";
@@ -106,7 +110,7 @@ async function saveMilestone() {
         }
     } catch (err) {
         console.error("Error saving milestone:", err);
-        alert("Failed to connect to backend server.");
+        alert(err.message || "Failed to connect to backend server.");
     }
 }
 
@@ -120,11 +124,10 @@ async function deleteMilestone(id) {
     formData.append("id", id);
 
     try {
-        const res = await fetch("api/milestones.php", {
+        const data = await API.fetch("api/milestones.php", {
             method: "POST",
             body: formData
         });
-        const data = await res.json();
 
         if (data.success) {
             loadMilestones();
@@ -133,6 +136,7 @@ async function deleteMilestone(id) {
         }
     } catch (err) {
         console.error("Delete error:", err);
+        alert(err.message);
     }
 }
 

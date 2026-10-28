@@ -28,11 +28,9 @@ class DB {
 
         try {
             $uri = MONGODB_URI;
-            // Short connection timeout so initial check doesn't hang if server is not up
             $options = ['serverSelectionTimeoutMS' => 2000];
             $manager = new MongoDB\Driver\Manager($uri, $options);
 
-            // Test ping to verify active MongoDB connection
             $command = new MongoDB\Driver\Command(['ping' => 1]);
             $manager->executeCommand(MONGODB_DATABASE, $command);
 
@@ -40,7 +38,6 @@ class DB {
             self::$useFallback = false;
             return self::$manager;
         } catch (\Exception $e) {
-            // MongoDB not reachable yet; fallback to local json file storage
             self::$useFallback = true;
             self::$manager = null;
             return null;
@@ -82,6 +79,71 @@ class DB {
     }
 
     /* ============================================================
+     * FILTER MATCHER FOR FALLBACK
+     * ============================================================ */
+    public static function matchesFilter(array $item, array $filter): bool {
+        foreach ($filter as $k => $v) {
+            if ($k === '$or' && is_array($v)) {
+                $anyMatch = false;
+                foreach ($v as $subFilter) {
+                    if (is_array($subFilter) && self::matchesFilter($item, $subFilter)) {
+                        $anyMatch = true;
+                        break;
+                    }
+                }
+                if (!$anyMatch) return false;
+                continue;
+            }
+
+            if (!array_key_exists($k, $item)) {
+                if ($v === null) continue;
+                return false;
+            }
+
+            $itemVal = $item[$k];
+
+            if (is_array($v) && !empty($v) && str_starts_with((string)array_key_first($v), '$')) {
+                foreach ($v as $op => $target) {
+                    switch ($op) {
+                        case '$eq':
+                            if ($itemVal != $target) return false;
+                            break;
+                        case '$ne':
+                            if ($itemVal == $target) return false;
+                            break;
+                        case '$gt':
+                            if (!($itemVal > $target)) return false;
+                            break;
+                        case '$gte':
+                            if (!($itemVal >= $target)) return false;
+                            break;
+                        case '$lt':
+                            if (!($itemVal < $target)) return false;
+                            break;
+                        case '$lte':
+                            if (!($itemVal <= $target)) return false;
+                            break;
+                        case '$in':
+                            if (!is_array($target) || !in_array($itemVal, $target)) return false;
+                            break;
+                        case '$nin':
+                            if (is_array($target) && in_array($itemVal, $target)) return false;
+                            break;
+                        default:
+                            if ($itemVal != $target) return false;
+                            break;
+                    }
+                }
+            } else {
+                if ($itemVal != $v) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    /* ============================================================
      * CRUD OPERATIONS
      * ============================================================ */
 
@@ -90,6 +152,14 @@ class DB {
      * Returns generated ID as string
      */
     public static function insert($collection, array $document) {
+        // Enforce unique email constraint for users
+        if ($collection === 'users' && isset($document['email'])) {
+            $existing = self::findOne('users', ['email' => strtolower(trim($document['email']))]);
+            if ($existing) {
+                throw new \Exception('Email already in use');
+            }
+        }
+
         $manager = self::getManager();
 
         if ($manager && !self::$useFallback) {
@@ -105,7 +175,6 @@ class DB {
                 $manager->executeBulkWrite(MONGODB_DATABASE . '.' . $collection, $bulk);
                 return (string)$document['_id'];
             } catch (\Exception $e) {
-                // In case of write failure, write to fallback
                 self::$useFallback = true;
             }
         }
@@ -130,7 +199,6 @@ class DB {
 
         if ($manager && !self::$useFallback) {
             try {
-                // Normalize _id filter if needed
                 if (isset($filter['_id']) && is_string($filter['_id']) && strlen($filter['_id']) === 24) {
                     try {
                         $filter['_id'] = new MongoDB\BSON\ObjectId($filter['_id']);
@@ -160,27 +228,30 @@ class DB {
         $items = self::readFallbackData($collection);
         $filtered = [];
         foreach ($items as $item) {
-            $match = true;
-            foreach ($filter as $k => $v) {
-                if (!isset($item[$k]) || $item[$k] != $v) {
-                    $match = false;
-                    break;
-                }
-            }
-            if ($match) {
+            if (self::matchesFilter($item, $filter)) {
                 $filtered[] = $item;
             }
         }
 
-        // Sort in fallback if sort option provided
+        // Multi-key Sort in fallback
         if (isset($options['sort']) && is_array($options['sort'])) {
-            $sortField = array_key_first($options['sort']);
-            $sortDir = $options['sort'][$sortField];
-            usort($filtered, function ($a, $b) use ($sortField, $sortDir) {
-                $va = $a[$sortField] ?? '';
-                $vb = $b[$sortField] ?? '';
-                return $sortDir < 0 ? strcmp($vb, $va) : strcmp($va, $vb);
+            $sorts = $options['sort'];
+            usort($filtered, function ($a, $b) use ($sorts) {
+                foreach ($sorts as $sortField => $sortDir) {
+                    $va = $a[$sortField] ?? '';
+                    $vb = $b[$sortField] ?? '';
+                    $cmp = strcmp((string)$va, (string)$vb);
+                    if ($cmp !== 0) {
+                        return $sortDir < 0 ? -$cmp : $cmp;
+                    }
+                }
+                return 0;
             });
+        }
+
+        // Skip in fallback
+        if (isset($options['skip']) && is_numeric($options['skip'])) {
+            $filtered = array_slice($filtered, (int)$options['skip']);
         }
 
         // Limit in fallback
@@ -225,14 +296,7 @@ class DB {
         $items = self::readFallbackData($collection);
         $updated = false;
         foreach ($items as &$item) {
-            $match = true;
-            foreach ($filter as $k => $v) {
-                if (!isset($item[$k]) || $item[$k] != $v) {
-                    $match = false;
-                    break;
-                }
-            }
-            if ($match) {
+            if (self::matchesFilter($item, $filter)) {
                 foreach ($update as $uk => $uv) {
                     $item[$uk] = $uv;
                 }
@@ -271,14 +335,7 @@ class DB {
         $newItems = [];
         $deleted = 0;
         foreach ($items as $item) {
-            $match = true;
-            foreach ($filter as $k => $v) {
-                if (!isset($item[$k]) || $item[$k] != $v) {
-                    $match = false;
-                    break;
-                }
-            }
-            if ($match && ($limit === 0 || $deleted < $limit)) {
+            if (self::matchesFilter($item, $filter) && ($limit === 0 || $deleted < $limit)) {
                 $deleted++;
                 continue;
             }

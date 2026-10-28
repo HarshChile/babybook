@@ -4,13 +4,181 @@
         "email": "chileharsh19@gmail.com",
         "password_hash": "$2y$10$8usLB7uDI7GOPlnbPLFz1Or9PHsgjrM3W4mOEcBbvc.nOCapZrcha",
         "created_at": "2026-10-13 15:33:39",
-        "_id": "9ebf0a86eae7f9238313d276"
+        "_id": "9ebf0a86eae7f9238313d276",
+        "role": "user"
     },
     {
         "name": "Addy",
         "email": "adhi25@gmail.com",
         "password_hash": "$2y$10$Noue/bfqvmEF5ssy280Mj.MK0vIjduhziRpdYc53AJeZz7YYHnc7S",
         "created_at": "2026-10-27 17:12:22",
-        "_id": "9399ed5e316a4ade6da45a95"
+        "_id": "9399ed5e316a4ade6da45a95",
+        "role": "user"
+    },
+    {
+        "name": "Addy",
+        "email": "adhi21@gmail.com",
+        "password_hash": "$2y$10$Wv.eAANrfWZhwcfHCDmTquoDZOrsPl52Av8nVW7IPUDljaNwpiwZG",
+        "created_at": "2026-10-28 16:37:45",
+        "_id": "e5f17bef73c673c2342a579d",
+        "role": "user"
+    },
+    {
+        "name": "Addy2",
+        "email": "adhi26@gmail.com",
+        "password_hash": "$2y$10$QVtsExn2MI35dd8xJXwlc.k8fae3VzWkr6hvVAiuqv2I2Bwnvno4y",
+        "created_at": "2026-10-28 16:59:41",
+        "_id": "f0a7f37267147b9e992840fc",
+        "role": "user"
+    },
+    {
+        "name": "Test Parent Alpha",
+        "email": "user_a_1793212668@tinytales.app",
+        "password_hash": "$2y$10$aJg2ClcjKmHlG3NpmXw8Y.dPxCEID4nJK8qc0.yuF1eMJinYFttAi",
+        "role": "user",
+        "created_at": "2026-10-28 18:37:48",
+        "updated_at": "2026-10-28 18:37:48",
+        "_id": "a003ba4a2cb21341d085e8d5",
+        "reset_token_hash": null,
+        "reset_token_expires": null
+    },
+    {
+        "name": "Alice Parent",
+        "email": "alice_1793212668@tinytales.app",
+        "password_hash": "$2y$10$Eh3WaJ9FrckwrMJ47SH/Jus43QiRfznictjrJ0dcVlGzNdpljK13K",
+        "role": "user",
+        "created_at": "2026-10-28 18:37:49",
+        "updated_at": "2026-10-28 18:37:49",
+        "_id": "66a3942377e4c564e5aa2060",
+        "active_baby_id": "4671bfb7b396f4ebe7920af4"
+    },
+    {
+        "name": "Bob Parent",
+        "email": "bob_1793212668@tinytales.app",
+        "password_hash": "$2y$10$yGx2Zz33ZvZbfN1TaoKtpuitdCKkWQG8hMJKhXo0KdvAz3pOzVZzi",
+        "role": "user",
+        "created_at": "2026-10-28 18:37:49",
+        "updated_at": "2026-10-28 18:37:49",
+        "_id": "022b0664b8d2bb95a8a552d7"
+    },
+    {
+        "name": "Test Parent Alpha",
+        "email": "user_a_1793212679@tinytales.app",
+        "password_hash": "$2y$10$abIieLRKusJit8fDWvWo8eLykgUUSGsW9mws6N8N0bmQY4G7AHvH.",
+        "role": "user",
+        "created_at": "2026-10-28 18:37:59",
+        "updated_at": "2026-10-28 18:38:00",
+        "_id": "cab60c8c8ed1dd4c99ccc28a",
+        "reset_token_hash": null,
+        "reset_token_expires": null
+    },
+    {
+        "name": "Alice Parent",
+        "email": "alice_1793212679@tinytales.app",
+        "password_hash": "$2y$10$7JioP4.elgBfPQSAQUjEhOqYcnmDjo2oNiC5VvbpSQUYqEBjH5ENu",
+        "role": "user",
+        "created_at": "2026-10-28 18:38:00",
+        "updated_at": "2026-10-28 18:38:00",
+        "_id": "5e7c3809c035f2558b7d3cb0",
+        "active_baby_id": "126680face7b9ec666c86edb"
+    },
+    {
+        "name": "Bob Parent",
+        "email": "bob_1793212679@tinytales.app",
+        "password_hash": "$2y$10$azSkGELgsccm//WbJb2aG.ol2I/YtGP4ZjhyhOvqBGmiiys1a88DK",
+        "role": "user",
+        "created_at": "2026-10-28 18:38:00",
+        "updated_at": "2026-10-28 18:38:00",
+        "_id": "cbf13854728311cc6d84f98f"
+    },
+    {
+        "name": "Test Parent Alpha",
+        "email": "user_a_1793212700@tinytales.app",
+        "password_hash": "$2y$10$WgPLXIW0wDt/xknZyjbzsOjYQatcZHf/aX1IR9MeNJVNLsGZ3FlS2",
+        "role": "user",
+        "created_at": "2026-10-28 18:38:20",
+        "updated_at": "2026-10-28 18:38:20",
+        "_id": "b5d0273f2520bad3fb3d3a44",
+        "reset_token_hash": null,
+        "reset_token_expires": null
+    },
+    {
+        "name": "Alice Parent",
+        "email": "alice_1793212700@tinytales.app",
+        "password_hash": "$2y$10$iDzPqpfij0xjP3D2fEKo2eGdYt4a66ggQxNA92DrdL8Kjy4mgtEw2",
+        "role": "user",
+        "created_at": "2026-10-28 18:38:21",
+        "updated_at": "2026-10-28 18:38:21",
+        "_id": "e329071ff6da3fda49c86a47",
+        "active_baby_id": "640cea5ad97edda8487f4cff"
+    },
+    {
+        "name": "Bob Parent",
+        "email": "bob_1793212700@tinytales.app",
+        "password_hash": "$2y$10$AAMk/xhmDV2JqlBAiZgkwuZfVsqfSzu5RDWPRIXMP6k0TioNck6Ry",
+        "role": "user",
+        "created_at": "2026-10-28 18:38:21",
+        "updated_at": "2026-10-28 18:38:21",
+        "_id": "c76517fa43d76157437f1350"
+    },
+    {
+        "name": "Test Parent Alpha",
+        "email": "user_a_1793212760@tinytales.app",
+        "password_hash": "$2y$10$VTFqzgCmUq5YpO.IdYBxWusNL4rk9ZE6bbazGWKH4J1KzlSSlKqDG",
+        "role": "user",
+        "created_at": "2026-10-28 18:39:20",
+        "updated_at": "2026-10-28 18:39:21",
+        "_id": "b88fa4848b6966a33f788b4f",
+        "reset_token_hash": null,
+        "reset_token_expires": null
+    },
+    {
+        "name": "Alice Parent",
+        "email": "alice_1793212760@tinytales.app",
+        "password_hash": "$2y$10$zWitu9kBAPfwPfyjmtTva.T2K1qmMIcAPBzy7FDUfdyXhLxUwE02y",
+        "role": "user",
+        "created_at": "2026-10-28 18:39:21",
+        "updated_at": "2026-10-28 18:39:21",
+        "_id": "39c96c1b417d4a61267272fa",
+        "active_baby_id": "10aba0995543ec42a72a23bd"
+    },
+    {
+        "name": "Bob Parent",
+        "email": "bob_1793212760@tinytales.app",
+        "password_hash": "$2y$10$jpXwpP/2OR7fBiT0z6pybe6yrBcMIfJvHehELaNrTHyC/qQ8OptaK",
+        "role": "user",
+        "created_at": "2026-10-28 18:39:21",
+        "updated_at": "2026-10-28 18:39:21",
+        "_id": "3976c8a124ad4f1bcb5a2c1b"
+    },
+    {
+        "name": "Test Parent Alpha",
+        "email": "user_a_1793212791@tinytales.app",
+        "password_hash": "$2y$10$NwTBvkx9jgajcay2GuJL8OYtrceZHoBjF0Fxi7WsYWcotJlx32Nn6",
+        "role": "user",
+        "created_at": "2026-10-28 18:39:51",
+        "updated_at": "2026-10-28 18:39:51",
+        "_id": "a1150c51e5055619dde4685e",
+        "reset_token_hash": null,
+        "reset_token_expires": null
+    },
+    {
+        "name": "Alice Parent",
+        "email": "alice_1793212791@tinytales.app",
+        "password_hash": "$2y$10$gq9m493Go/ZCLF/VXvIwV.dMEBaLwKOHqfLMSKDDQ2k9RwWxxMBc6",
+        "role": "user",
+        "created_at": "2026-10-28 18:39:52",
+        "updated_at": "2026-10-28 18:39:52",
+        "_id": "fe7dcf92540b14e663d4114d",
+        "active_baby_id": "107a7a99a16c3a75ce9ba5d1"
+    },
+    {
+        "name": "Bob Parent",
+        "email": "bob_1793212791@tinytales.app",
+        "password_hash": "$2y$10$XE8viIhb9VVQFUWyiZvYXucuHYkbBH5ipyEMe/HwpcMufn6aZdDWy",
+        "role": "user",
+        "created_at": "2026-10-28 18:39:52",
+        "updated_at": "2026-10-28 18:39:52",
+        "_id": "413489f7930bb533315ca2b4"
     }
 ]

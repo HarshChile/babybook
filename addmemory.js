@@ -7,7 +7,8 @@ let currentMemories = [];
 let currentSelectedMemory = null;
 let showFavoritesOnly = false;
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  await API.requireAuth();
   // Set default date input to today
   const dateInput = document.getElementById("date");
   if (dateInput) {
@@ -48,8 +49,7 @@ async function loadMemories() {
   }
 
   try {
-    const res = await fetch(url);
-    const data = await res.json();
+    const data = await API.fetch(url);
 
     if (data.success) {
       currentMemories = data.memories || [];
@@ -59,7 +59,12 @@ async function loadMemories() {
     }
   } catch (err) {
     console.error("Error fetching memories:", err);
-    container.innerHTML = `<p style="color:#7b1620;">Unable to connect to backend server.</p>`;
+    container.innerHTML = `
+      <div style="grid-column: 1 / -1; background:#FFF5F5; border: 1px solid #F4B7B7; border-radius:16px; padding:24px; text-align:center; color:#771212;">
+        <h4 style="margin-bottom:6px;">⚠️ Backend Connection Notice</h4>
+        <p style="font-size:14px; opacity:0.9;">${escapeHtml(err.message)}</p>
+      </div>
+    `;
   }
 }
 
@@ -136,11 +141,10 @@ async function addMemory() {
   saveBtn.textContent = "Uploading photo...";
 
   try {
-    const res = await fetch("api/memories.php", {
+    const data = await API.fetch("api/memories.php", {
       method: "POST",
       body: formData
     });
-    const data = await res.json();
 
     if (data.success) {
       // Clear fields
@@ -154,7 +158,7 @@ async function addMemory() {
     }
   } catch (err) {
     console.error("Upload error:", err);
-    alert("Failed to upload photo to server.");
+    alert(err.message || "Failed to upload photo to server.");
   } finally {
     saveBtn.disabled = false;
     saveBtn.textContent = "Save to Timeline";
@@ -196,11 +200,10 @@ async function toggleFavoriteCurrent() {
   formData.append("id", currentSelectedMemory._id);
 
   try {
-    const res = await fetch("api/memories.php", {
+    const data = await API.fetch("api/memories.php", {
       method: "POST",
       body: formData
     });
-    const data = await res.json();
 
     if (data.success) {
       currentSelectedMemory.is_favorite = data.is_favorite;
@@ -216,6 +219,7 @@ async function toggleFavoriteCurrent() {
     }
   } catch (err) {
     console.error("Error toggling favorite:", err);
+    alert(err.message);
   }
 }
 
@@ -231,11 +235,10 @@ async function deleteCurrentMemory() {
   formData.append("id", currentSelectedMemory._id);
 
   try {
-    const res = await fetch("api/memories.php", {
+    const data = await API.fetch("api/memories.php", {
       method: "POST",
       body: formData
     });
-    const data = await res.json();
 
     if (data.success) {
       closePreview();
@@ -245,7 +248,7 @@ async function deleteCurrentMemory() {
     }
   } catch (err) {
     console.error("Delete error:", err);
-    alert("Could not delete memory.");
+    alert(err.message || "Could not delete memory.");
   }
 }
 

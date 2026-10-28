@@ -3,7 +3,8 @@
  * BabyBook / TinyTales
  */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  await API.requireAuth();
   const saveBtn = document.getElementById("saveCapsuleBtn");
   if (saveBtn) {
     saveBtn.addEventListener("click", addCapsule);
@@ -24,8 +25,7 @@ async function loadCapsules() {
   const box = document.getElementById("capsuleBox");
 
   try {
-    const res = await fetch("api/capsules.php");
-    const data = await res.json();
+    const data = await API.fetch("api/capsules.php");
 
     if (data.success) {
       renderCapsules(data.capsules || []);
@@ -34,7 +34,12 @@ async function loadCapsules() {
     }
   } catch (err) {
     console.error("Error fetching capsules:", err);
-    box.innerHTML = "<p>Unable to connect to server.</p>";
+    box.innerHTML = `
+      <div style="background:#FFF5F5; border:1px solid #F4B7B7; border-radius:15px; padding:20px; text-align:center; color:#771212;">
+        <h4>⚠️ Backend Connection Notice</h4>
+        <p style="font-size:13px; opacity:0.9;">${escapeHtml(err.message)}</p>
+      </div>
+    `;
   }
 }
 
@@ -110,11 +115,10 @@ async function addCapsule() {
   saveBtn.textContent = "Locking in capsule...";
 
   try {
-    const res = await fetch("api/capsules.php", {
+    const data = await API.fetch("api/capsules.php", {
       method: "POST",
       body: formData
     });
-    const data = await res.json();
 
     if (data.success) {
       document.getElementById("title").value = "";
@@ -127,7 +131,7 @@ async function addCapsule() {
     }
   } catch (err) {
     console.error("Save error:", err);
-    alert("Failed to save capsule to server.");
+    alert(err.message || "Failed to save capsule to server.");
   } finally {
     saveBtn.disabled = false;
     saveBtn.textContent = "Lock in Capsule 🔒";
@@ -144,17 +148,17 @@ async function deleteCapsule(id) {
   formData.append("id", id);
 
   try {
-    const res = await fetch("api/capsules.php", {
+    const data = await API.fetch("api/capsules.php", {
       method: "POST",
       body: formData
     });
-    const data = await res.json();
 
     if (data.success) {
       loadCapsules();
     }
   } catch (err) {
     console.error("Delete error:", err);
+    alert(err.message);
   }
 }
 

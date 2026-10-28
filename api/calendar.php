@@ -1,26 +1,45 @@
 <?php
 /**
  * Calendar API - Events & Memories by Date
- * BabyBook / TinyTales
+ * TinyTales BabyBook
+ * Isolated strictly per authenticated user
  */
 
+require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../db.php';
+require_once __DIR__ . '/auth_middleware.php';
 
-$method = $_SERVER['REQUEST_METHOD'];
+$user = Auth::requireAuth();
+$userId = (string)$user['_id'];
+
+$method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
+
+// Handle CORS OPTIONS preflight
+if ($method === 'OPTIONS') {
+    http_response_code(200);
+    safeExit();
+}
 
 if ($method === 'GET') {
     $year = $_GET['year'] ?? date('Y');
     $month = $_GET['month'] ?? date('m');
-    $monthPadded = str_pad((string)$month, 2, '0', STR_PAD_LEFT);
-    $prefix = "$year-$monthPadded";
 
-    // Find memories for this month or all memories
-    $allMemories = DB::find('memories', [], ['sort' => ['date' => 1]]);
-    $allMilestones = DB::find('milestones', [], ['sort' => ['date' => 1]]);
+    $filter = ['user_id' => $userId];
+
+    if (!empty($_GET['baby_id'])) {
+        $babyCheck = Auth::verifyBabyOwnership($_GET['baby_id'], $userId);
+        if ($babyCheck) {
+            $filter['baby_id'] = $_GET['baby_id'];
+        }
+    }
+
+    // Retrieve only authenticated user's records
+    $userMemories = DB::find('memories', $filter, ['sort' => ['date' => 1]]);
+    $userMilestones = DB::find('milestones', $filter, ['sort' => ['date' => 1]]);
 
     $eventsByDate = [];
 
-    foreach ($allMemories as $m) {
+    foreach ($userMemories as $m) {
         $d = $m['date'] ?? '';
         if ($d) {
             if (!isset($eventsByDate[$d])) {
@@ -37,7 +56,7 @@ if ($method === 'GET') {
         }
     }
 
-    foreach ($allMilestones as $ms) {
+    foreach ($userMilestones as $ms) {
         $d = $ms['date'] ?? '';
         if ($d) {
             if (!isset($eventsByDate[$d])) {
@@ -68,7 +87,12 @@ if ($method === 'POST') {
 
     $photoPath = handleFileUpload('image', 'photos');
 
+    $activeBaby = Auth::getActiveBaby($userId);
+    $babyId = (string)$activeBaby['_id'];
+
     $doc = [
+        'user_id' => $userId,
+        'baby_id' => $babyId,
         'title' => $title,
         'description' => $desc,
         'date' => $date,
@@ -85,7 +109,7 @@ if ($method === 'POST') {
         'success' => true,
         'message' => 'Memory saved to calendar successfully',
         'memory' => $doc
-    ]);
+    ], 201);
 }
 
 sendError('Method not allowed', 405);

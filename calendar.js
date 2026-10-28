@@ -12,7 +12,8 @@ const monthNames = [
   "July", "August", "September", "October", "November", "December"
 ];
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  await API.requireAuth();
   const calDateInput = document.getElementById("calDate");
   const todayStr = new Date().toISOString().split("T")[0];
   if (calDateInput) {
@@ -39,8 +40,7 @@ async function loadAndRenderCalendar() {
   document.getElementById("currentMonthYear").textContent = `${monthNames[month - 1]} ${year}`;
 
   try {
-    const res = await fetch(`api/calendar.php?year=${year}&month=${month}`);
-    const data = await res.json();
+    const data = await API.fetch(`api/calendar.php?year=${year}&month=${month}`);
     if (data.success) {
       eventsCache = data.events || {};
     }
@@ -187,11 +187,10 @@ async function saveCalendarMemory() {
   saveBtn.textContent = "Saving...";
 
   try {
-    const res = await fetch("api/calendar.php", {
+    const data = await API.fetch("api/calendar.php", {
       method: "POST",
       body: formData
     });
-    const data = await res.json();
 
     if (data.success) {
       document.getElementById("calTitle").value = "";
@@ -204,7 +203,7 @@ async function saveCalendarMemory() {
     }
   } catch (err) {
     console.error("Calendar save error:", err);
-    alert("Failed to save memory to server.");
+    alert(err.message || "Failed to save memory to server.");
   } finally {
     saveBtn.disabled = false;
     saveBtn.textContent = "Save Memory";

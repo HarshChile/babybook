@@ -7,7 +7,8 @@ let allScrapbookItems = [];
 let currentPage = 1;
 const itemsPerPage = 4;
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  await API.requireAuth();
   const sbDateInput = document.getElementById("sbDate");
   if (sbDateInput) {
     sbDateInput.value = new Date().toISOString().split("T")[0];
@@ -19,8 +20,7 @@ async function loadScrapbook() {
   const container = document.getElementById("scrapbookEntriesContainer");
 
   try {
-    const res = await fetch("api/scrapbook.php");
-    const data = await res.json();
+    const data = await API.fetch("api/scrapbook.php");
 
     if (data.success) {
       allScrapbookItems = data.items || [];
@@ -30,7 +30,12 @@ async function loadScrapbook() {
     }
   } catch (err) {
     console.error("Error fetching scrapbook:", err);
-    container.innerHTML = `<p class="empty">Unable to connect to server.</p>`;
+    container.innerHTML = `
+      <div style="background:#FFF5F5; border:1px solid #F4B7B7; border-radius:15px; padding:20px; text-align:center; color:#771212;">
+        <h4>⚠️ Backend Connection Notice</h4>
+        <p style="font-size:13px; opacity:0.9;">${escapeHtml(err.message)}</p>
+      </div>
+    `;
   }
 }
 
@@ -120,11 +125,10 @@ async function addScrapbookEntry() {
   addBtn.textContent = "Saving...";
 
   try {
-    const res = await fetch("api/scrapbook.php", {
+    const data = await API.fetch("api/scrapbook.php", {
       method: "POST",
       body: formData
     });
-    const data = await res.json();
 
     if (data.success) {
       document.getElementById("sbTitle").value = "";
@@ -137,7 +141,7 @@ async function addScrapbookEntry() {
     }
   } catch (err) {
     console.error("Save error:", err);
-    alert("Failed to save scrapbook entry.");
+    alert(err.message || "Failed to save scrapbook entry.");
   } finally {
     addBtn.disabled = false;
     addBtn.textContent = "Add to Scrapbook";
@@ -153,11 +157,10 @@ async function clearScrapbook() {
   formData.append("action", "clear");
 
   try {
-    const res = await fetch("api/scrapbook.php", {
+    const data = await API.fetch("api/scrapbook.php", {
       method: "POST",
       body: formData
     });
-    const data = await res.json();
 
     if (data.success) {
       currentPage = 1;
@@ -165,6 +168,7 @@ async function clearScrapbook() {
     }
   } catch (err) {
     console.error("Clear error:", err);
+    alert(err.message);
   }
 }
 

@@ -63,7 +63,12 @@
     </div>
   </div>
 
+  <script src="api-client.js"></script>
   <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      API.requireAuth();
+    });
+
     document.getElementById("registerForm").addEventListener("submit", async function (e) {
       e.preventDefault();
 
@@ -114,13 +119,13 @@
       formData.append("fullname", fullname.value.trim());
       formData.append("email", email.value.trim());
       formData.append("password", password.value);
+      formData.append("confirm", confirm.value);
 
       try {
-        const res = await fetch("api/auth.php?action=register", {
+        const data = await API.fetch("api/auth.php?action=register", {
           method: "POST",
           body: formData
         });
-        const data = await res.json();
 
         if (data.success) {
           alert("Account created successfully! 🎉 Welcome to TinyTales!");
@@ -130,7 +135,7 @@
         }
       } catch (err) {
         console.error("Registration error:", err);
-        emailError.textContent = "Failed to connect to backend server.";
+        emailError.textContent = err.message;
       } finally {
         btn.disabled = false;
         btn.textContent = "Sign Up";
@@ -138,7 +143,7 @@
     });
 
     function quickDemo() {
-      window.location.href = "dashboard.html";
+      window.location.href = "login.html";
     }
   </script>
 

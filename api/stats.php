@@ -1,20 +1,26 @@
 <?php
 /**
  * Dashboard Stats API
- * BabyBook / TinyTales
- * Computes dashboard counters and loads recent memories
+ * TinyTales BabyBook
+ * Isolated dashboard analytics strictly per authenticated user
  */
 
+require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../db.php';
+require_once __DIR__ . '/auth_middleware.php';
 
-$totalMemories = DB::count('memories');
-$journalEntries = DB::count('scrapbook');
-$favorites = DB::count('memories', ['is_favorite' => true]);
-$upcomingCapsules = DB::count('capsules', ['unlock_date' => ['$gt' => date('Y-m-d')]]);
-$milestonesCount = DB::count('milestones');
+$user = Auth::requireAuth();
+$userId = (string)$user['_id'];
 
-// Recent 4 memories for dashboard grid
-$recentMemories = DB::find('memories', [], ['sort' => ['date' => -1, 'created_at' => -1], 'limit' => 4]);
+// Scoped counters for authenticated user only
+$totalMemories = DB::count('memories', ['user_id' => $userId]);
+$journalEntries = DB::count('scrapbook', ['user_id' => $userId]);
+$favorites = DB::count('memories', ['user_id' => $userId, 'is_favorite' => true]);
+$upcomingCapsules = DB::count('capsules', ['user_id' => $userId, 'unlock_date' => ['$gt' => date('Y-m-d')]]);
+$milestonesCount = DB::count('milestones', ['user_id' => $userId]);
+
+// Recent 4 memories belonging to authenticated user
+$recentMemories = DB::find('memories', ['user_id' => $userId], ['sort' => ['date' => -1, 'created_at' => -1], 'limit' => 4]);
 
 foreach ($recentMemories as &$m) {
     if (empty($m['photo_path'])) {
@@ -24,13 +30,14 @@ foreach ($recentMemories as &$m) {
     }
 }
 
-// Get baby name from profile
-$profile = DB::findOne('profile', []);
-$babyName = $profile['baby_name'] ?? 'Emma';
+// Active baby details
+$activeBaby = Auth::getActiveBaby($userId);
+$babyName = $activeBaby['baby_name'] ?? 'Little One';
 
 jsonResponse([
     'success' => true,
     'baby_name' => $babyName,
+    'active_baby' => $activeBaby,
     'stats' => [
         'total_memories' => $totalMemories,
         'journal_entries' => $journalEntries,

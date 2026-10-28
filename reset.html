@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TinyTales - Reset Password</title>
+  <link rel="stylesheet" href="login.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="title">
+        <h1>Set New Password</h1>
+        <p>Enter your new password below to regain access to your TinyTales scrapbook.</p>
+      </div>
+
+      <div class="form-title">Reset Password</div>
+
+      <div id="statusNotice" style="display:none; padding:12px; border-radius:10px; margin-bottom:15px; font-size:13px;"></div>
+
+      <form id="resetPassForm" novalidate>
+        <input type="hidden" id="resetEmail" />
+        <input type="hidden" id="resetToken" />
+
+        <div class="field">
+          <label for="newPassword">New Password</label>
+          <input id="newPassword" type="password" placeholder="At least 6 characters" required />
+          <div class="error" id="newPasswordError"></div>
+        </div>
+
+        <div class="field">
+          <label for="confirmPassword">Confirm New Password</label>
+          <input id="confirmPassword" type="password" placeholder="Re-enter your password" required />
+          <div class="error" id="confirmPasswordError"></div>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn" id="resetSubmitBtn">Update Password</button>
+        </div>
+
+        <div class="foot">
+          Remembered your password?
+          <a href="login.html" class="link">Back to Login</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="api-client.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const email = urlParams.get("email");
+      const token = urlParams.get("token");
+
+      const statusNotice = document.getElementById("statusNotice");
+      const submitBtn = document.getElementById("resetSubmitBtn");
+
+      if (!email || !token) {
+        statusNotice.style.display = "block";
+        statusNotice.style.background = "#FFF0F2";
+        statusNotice.style.color = "#8b0f1f";
+        statusNotice.innerHTML = "⚠️ Invalid or missing password reset link. Please <a href='forgot.html'>request a new one</a>.";
+        submitBtn.disabled = true;
+        return;
+      }
+
+      document.getElementById("resetEmail").value = email;
+      document.getElementById("resetToken").value = token;
+
+      // Validate token on load
+      try {
+        const formData = new FormData();
+        formData.append("email", email);
+        formData.append("token", token);
+
+        const data = await API.fetch("api/auth.php?action=validate_reset_token", {
+          method: "POST",
+          body: formData
+        });
+
+        if (!data.success) {
+          statusNotice.style.display = "block";
+          statusNotice.style.background = "#FFF0F2";
+          statusNotice.style.color = "#8b0f1f";
+          statusNotice.innerHTML = `⚠️ ${escapeHtml(data.error || "Reset link is invalid or has expired.")} <a href='forgot.html'>Request a new link</a>.`;
+          submitBtn.disabled = true;
+        }
+      } catch (err) {
+        console.error("Token verification error:", err);
+      }
+    });
+
+    document.getElementById("resetPassForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const email = document.getElementById("resetEmail").value;
+      const token = document.getElementById("resetToken").value;
+      const newPassword = document.getElementById("newPassword").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+      const newPasswordError = document.getElementById("newPasswordError");
+      const confirmPasswordError = document.getElementById("confirmPasswordError");
+      const submitBtn = document.getElementById("resetSubmitBtn");
+      const statusNotice = document.getElementById("statusNotice");
+
+      newPasswordError.textContent = "";
+      confirmPasswordError.textContent = "";
+
+      let valid = true;
+      if (newPassword.length < 6) {
+        newPasswordError.textContent = "Password must be at least 6 characters.";
+        valid = false;
+      }
+      if (newPassword !== confirmPassword) {
+        confirmPasswordError.textContent = "Passwords do not match.";
+        valid = false;
+      }
+      if (!valid) return;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Updating...";
+
+      const formData = new FormData();
+      formData.append("email", email);
+      formData.append("token", token);
+      formData.append("password", newPassword);
+      formData.append("confirm", confirmPassword);
+
+      try {
+        const data = await API.fetch("api/auth.php?action=reset_password", {
+          method: "POST",
+          body: formData
+        });
+
+        if (data.success) {
+          statusNotice.style.display = "block";
+          statusNotice.style.background = "#EBFBF2";
+          statusNotice.style.color = "#1D7544";
+          statusNotice.textContent = "🎉 Password reset successfully! Redirecting to login...";
+          setTimeout(() => {
+            window.location.href = "login.html";
+          }, 1500);
+        } else {
+          statusNotice.style.display = "block";
+          statusNotice.style.background = "#FFF0F2";
+          statusNotice.style.color = "#8b0f1f";
+          statusNotice.textContent = data.error || "Password reset failed";
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Update Password";
+        }
+      } catch (err) {
+        console.error("Reset error:", err);
+        statusNotice.style.display = "block";
+        statusNotice.style.background = "#FFF0F2";
+        statusNotice.style.color = "#8b0f1f";
+        statusNotice.textContent = err.message || "Failed to connect to server";
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Update Password";
+      }
+    });
+
+    function escapeHtml(text) {
+      if (!text) return "";
+      return text.replace(/[&<>"']/g, function(m) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
+      });
+    }
+  </script>
+</body>
+</html>

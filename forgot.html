@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>TinyTales - Forgot Password</title>
   <link rel="stylesheet" href="forgot.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -13,6 +14,8 @@
       <h1>Forgot Your Password?</h1>
       <p>Enter your registered email below, and we’ll send you instructions to reset it.</p>
     </div>
+
+    <div id="noticeMsg" style="display:none; padding:12px 15px; border-radius:10px; margin-bottom:15px; font-size:13px;"></div>
 
     <!-- 🔐 RESET FORM -->
     <form id="resetForm" novalidate>
@@ -26,32 +29,68 @@
       <div class="input-group">
         <button type="submit" id="resetBtn">Send Reset Link</button>
       </div>
+
+      <div id="devLinkBox" style="display:none; margin-top:15px; padding:12px; background:#fff7ed; border:1px dashed #f97316; border-radius:10px; font-size:12px;">
+        <strong>⚙️ Development Reset Shortcut:</strong>
+        <p style="margin:6px 0;">Because no SMTP email server is active in this environment, your reset link is ready below:</p>
+        <a id="devResetLink" href="#" style="color:#c2410c; font-weight:600; word-break:break-all;">Click here to reset password →</a>
+      </div>
     </form>
 
     <a href="login.html" class="back-link">← Back to Login</a>
   </div>
 
+  <script src="api-client.js"></script>
   <script>
-    document.getElementById("resetForm").addEventListener("submit", function (e) {
+    document.getElementById("resetForm").addEventListener("submit", async function (e) {
       e.preventDefault();
 
       const email = document.getElementById("email").value.trim();
       const emailError = document.getElementById("emailError");
+      const btn = document.getElementById("resetBtn");
+      const notice = document.getElementById("noticeMsg");
+      const devBox = document.getElementById("devLinkBox");
+
       emailError.textContent = "";
+      notice.style.display = "none";
+      devBox.style.display = "none";
 
       if (!email || !email.includes("@")) {
         emailError.textContent = "Please enter a valid email address.";
         return;
       }
 
-      const btn = document.getElementById("resetBtn");
       btn.disabled = true;
       btn.textContent = "Sending...";
 
-      setTimeout(() => {
-        alert("If an account exists for " + email + ", a password reset link has been dispatched to your inbox! 📧");
-        window.location.href = "login.html";
-      }, 800);
+      const formData = new FormData();
+      formData.append("email", email);
+
+      try {
+        const data = await API.fetch("api/auth.php?action=forgot_password", {
+          method: "POST",
+          body: formData
+        });
+
+        notice.style.display = "block";
+        notice.style.background = "#EBFBF2";
+        notice.style.color = "#1D7544";
+        notice.textContent = data.message || "If an account exists, reset instructions have been sent.";
+
+        if (data.dev_reset_url) {
+          devBox.style.display = "block";
+          document.getElementById("devResetLink").href = data.dev_reset_url;
+        }
+      } catch (err) {
+        console.error("Forgot password error:", err);
+        notice.style.display = "block";
+        notice.style.background = "#FFF0F2";
+        notice.style.color = "#8b0f1f";
+        notice.textContent = err.message || "Failed to process password reset request";
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Send Reset Link";
+      }
     });
   </script>
 

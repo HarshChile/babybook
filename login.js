@@ -3,6 +3,11 @@
  * BabyBook / TinyTales
  */
 
+document.addEventListener("DOMContentLoaded", () => {
+  // If already authenticated, redirect to dashboard
+  API.requireAuth();
+});
+
 document.getElementById("loginForm").addEventListener("submit", async function (e) {
   e.preventDefault();
 
@@ -44,11 +49,10 @@ document.getElementById("loginForm").addEventListener("submit", async function (
   formData.append("password", password.value);
 
   try {
-    const res = await fetch("api/auth.php?action=login", {
+    const data = await API.fetch("api/auth.php?action=login", {
       method: "POST",
       body: formData
     });
-    const data = await res.json();
 
     if (data.success) {
       window.location.href = "dashboard.html";
@@ -57,14 +61,21 @@ document.getElementById("loginForm").addEventListener("submit", async function (
     }
   } catch (err) {
     console.error("Login request failed:", err);
-    passwordError.textContent = "Could not connect to backend.";
+    passwordError.textContent = err.message || "Login failed. Please try again.";
   } finally {
     btn.disabled = false;
     btn.textContent = "Login";
   }
 });
 
-function demoLogin() {
-  // Quick demo access
-  window.location.href = "dashboard.html";
+/**
+ * Authenticate securely using the demo parent account
+ */
+async function demoLogin() {
+  document.getElementById("email").value = "demo@tinytales.app";
+  document.getElementById("password").value = "password123";
+  const form = document.getElementById("loginForm");
+  if (form) {
+    form.dispatchEvent(new Event("submit"));
+  }
 }

@@ -1,0 +1,57 @@
+[
+    {
+        "user_id": "66a3942377e4c564e5aa2060",
+        "baby_id": "4671bfb7b396f4ebe7920af4",
+        "title": "Alice Polaroid Sunshine",
+        "date": "2026-06-15",
+        "mood": "\ud83d\ude0a Joyful",
+        "note": "Alice scrapbook diary entry",
+        "photo_path": null,
+        "created_at": "2026-10-28 18:37:49",
+        "_id": "26623f4d9bf25af6655f43cb"
+    },
+    {
+        "user_id": "5e7c3809c035f2558b7d3cb0",
+        "baby_id": "126680face7b9ec666c86edb",
+        "title": "Alice Polaroid Sunshine",
+        "date": "2026-06-15",
+        "mood": "\ud83d\ude0a Joyful",
+        "note": "Alice scrapbook diary entry",
+        "photo_path": null,
+        "created_at": "2026-10-28 18:38:00",
+        "_id": "0408e5db7fdf062902915336"
+    },
+    {
+        "user_id": "e329071ff6da3fda49c86a47",
+        "baby_id": "640cea5ad97edda8487f4cff",
+        "title": "Alice Polaroid Sunshine",
+        "date": "2026-06-15",
+        "mood": "\ud83d\ude0a Joyful",
+        "note": "Alice scrapbook diary entry",
+        "photo_path": null,
+        "created_at": "2026-10-28 18:38:21",
+        "_id": "116cf24c8bf9069513bc4192"
+    },
+    {
+        "user_id": "39c96c1b417d4a61267272fa",
+        "baby_id": "10aba0995543ec42a72a23bd",
+        "title": "Alice Polaroid Sunshine",
+        "date": "2026-06-15",
+        "mood": "\ud83d\ude0a Joyful",
+        "note": "Alice scrapbook diary entry",
+        "photo_path": null,
+        "created_at": "2026-10-28 18:39:22",
+        "_id": "d8e45829021a041d4b8fdc04"
+    },
+    {
+        "user_id": "fe7dcf92540b14e663d4114d",
+        "baby_id": "107a7a99a16c3a75ce9ba5d1",
+        "title": "Alice Polaroid Sunshine",
+        "date": "2026-06-15",
+        "mood": "\ud83d\ude0a Joyful",
+        "note": "Alice scrapbook diary entry",
+        "photo_path": null,
+        "created_at": "2026-10-28 18:39:52",
+        "_id": "98fca2cc4b923bbc22f909d5"
+    }
+]

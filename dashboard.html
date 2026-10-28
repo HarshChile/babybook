@@ -149,15 +149,17 @@
 
 </main>
 
+<script src="api-client.js"></script>
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  await API.requireAuth();
   loadDashboardData();
 });
 
 async function loadDashboardData() {
+  const grid = document.getElementById("memoryGrid");
   try {
-    const res = await fetch("api/stats.php");
-    const data = await res.json();
+    const data = await API.fetch("api/stats.php");
 
     if (data.success) {
       // Update Baby Greeting
@@ -175,7 +177,6 @@ async function loadDashboardData() {
       }
 
       // Update Recent Memories
-      const grid = document.getElementById("memoryGrid");
       if (data.recent_memories && data.recent_memories.length > 0) {
         grid.innerHTML = "";
         data.recent_memories.forEach(m => {
@@ -211,6 +212,12 @@ async function loadDashboardData() {
     }
   } catch (err) {
     console.error("Error loading dashboard data:", err);
+    grid.innerHTML = `
+      <div class="empty-state" style="border:1px solid #F4B7B7;">
+        <h4 style="margin-bottom:6px;">⚠️ Backend Connection Notice</h4>
+        <p style="font-size:14px; opacity:0.9;">${escapeHtml(err.message)}</p>
+      </div>
+    `;
   }
 }
 

@@ -1,0 +1,551 @@
+[
+    {
+        "user_id": "a003ba4a2cb21341d085e8d5",
+        "type": "tip",
+        "title": "Welcome to TinyTales! \ud83c\udf7c",
+        "message": "Start preserving your baby's precious memories, milestones, and time capsules.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:37:48",
+        "_id": "ac2cfcfc78d67eeacf464599"
+    },
+    {
+        "user_id": "66a3942377e4c564e5aa2060",
+        "type": "tip",
+        "title": "Welcome to TinyTales! \ud83c\udf7c",
+        "message": "Start preserving your baby's precious memories, milestones, and time capsules.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:37:49",
+        "_id": "4a87a9d82c398b5ff5730ced"
+    },
+    {
+        "user_id": "022b0664b8d2bb95a8a552d7",
+        "type": "tip",
+        "title": "Welcome to TinyTales! \ud83c\udf7c",
+        "message": "Start preserving your baby's precious memories, milestones, and time capsules.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:37:49",
+        "_id": "162935a0e4cb2622013db356"
+    },
+    {
+        "user_id": "66a3942377e4c564e5aa2060",
+        "type": "memories",
+        "title": "Memory Added \ud83d\udcf7",
+        "message": "Added new memory \"Alice Secret Memory #1\" to your scrapbook.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:37:49",
+        "_id": "57db7a9cfdea07bd64250065"
+    },
+    {
+        "user_id": "66a3942377e4c564e5aa2060",
+        "type": "milestones",
+        "title": "New Milestone Achieved! \u2b50",
+        "message": "Captured milestone: Alice First Steps",
+        "is_read": false,
+        "created_at": "2026-10-28 18:37:49",
+        "_id": "174197d64e66f6028897c414"
+    },
+    {
+        "user_id": "66a3942377e4c564e5aa2060",
+        "type": "capsule",
+        "title": "Time Capsule Locked \ud83d\udc8c",
+        "message": "Your capsule \"Alice Capsule For 2040\" is locked safely until 2040-01-01",
+        "is_read": false,
+        "created_at": "2026-10-28 18:37:49",
+        "_id": "724b41f28b7f8e98a4de4759"
+    },
+    {
+        "user_id": "022b0664b8d2bb95a8a552d7",
+        "type": "memories",
+        "title": "Memory Added \ud83d\udcf7",
+        "message": "Added new memory \"Bob Baby First Laugh\" to your scrapbook.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:37:49",
+        "_id": "c5e67227679718cdfb86558d"
+    },
+    {
+        "user_id": "022b0664b8d2bb95a8a552d7",
+        "type": "memories",
+        "title": "Memory Added \ud83d\udcf7",
+        "message": "Added new memory \"Cross Baby Attack\" to your scrapbook.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:37:49",
+        "_id": "7133fd20905e340465a899bb"
+    },
+    {
+        "user_id": "66a3942377e4c564e5aa2060",
+        "type": "memories",
+        "title": "Memory Added \ud83d\udcf7",
+        "message": "Added new memory \"Temp Memory to Delete\" to your scrapbook.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:37:50",
+        "_id": "b7fdfae6d537d693b7ee1866"
+    },
+    {
+        "user_id": "66a3942377e4c564e5aa2060",
+        "type": "milestones",
+        "title": "New Milestone Achieved! \u2b50",
+        "message": "Captured milestone: Temp Milestone to Delete",
+        "is_read": false,
+        "created_at": "2026-10-28 18:37:50",
+        "_id": "bfd94e8fc36433a897994aa3"
+    },
+    {
+        "user_id": "66a3942377e4c564e5aa2060",
+        "type": "capsule",
+        "title": "Time Capsule Locked \ud83d\udc8c",
+        "message": "Your capsule \"Temp Capsule to Delete\" is locked safely until 2030-01-01",
+        "is_read": false,
+        "created_at": "2026-10-28 18:37:50",
+        "_id": "e605d4605a292f6df0ed738d"
+    },
+    {
+        "user_id": "66a3942377e4c564e5aa2060",
+        "type": "capsule",
+        "title": "Time Capsule Locked \ud83d\udc8c",
+        "message": "Your capsule \"Past Unlocked Capsule\" is locked safely until 2020-01-01",
+        "is_read": false,
+        "created_at": "2026-10-28 18:37:50",
+        "_id": "21fa975cfa973255f78d53fd"
+    },
+    {
+        "user_id": "cab60c8c8ed1dd4c99ccc28a",
+        "type": "tip",
+        "title": "Welcome to TinyTales! \ud83c\udf7c",
+        "message": "Start preserving your baby's precious memories, milestones, and time capsules.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:37:59",
+        "_id": "367187b4c105f5dee2d74f6e"
+    },
+    {
+        "user_id": "5e7c3809c035f2558b7d3cb0",
+        "type": "tip",
+        "title": "Welcome to TinyTales! \ud83c\udf7c",
+        "message": "Start preserving your baby's precious memories, milestones, and time capsules.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:38:00",
+        "_id": "63a936afc1f9182cb927083f"
+    },
+    {
+        "user_id": "cbf13854728311cc6d84f98f",
+        "type": "tip",
+        "title": "Welcome to TinyTales! \ud83c\udf7c",
+        "message": "Start preserving your baby's precious memories, milestones, and time capsules.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:38:00",
+        "_id": "c14c47accdae572a8e7d12ce"
+    },
+    {
+        "user_id": "5e7c3809c035f2558b7d3cb0",
+        "type": "memories",
+        "title": "Memory Added \ud83d\udcf7",
+        "message": "Added new memory \"Alice Secret Memory #1\" to your scrapbook.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:38:00",
+        "_id": "9e4e5302f0273dee3d219391"
+    },
+    {
+        "user_id": "5e7c3809c035f2558b7d3cb0",
+        "type": "milestones",
+        "title": "New Milestone Achieved! \u2b50",
+        "message": "Captured milestone: Alice First Steps",
+        "is_read": false,
+        "created_at": "2026-10-28 18:38:00",
+        "_id": "16b430bfa455ce4e71b67731"
+    },
+    {
+        "user_id": "5e7c3809c035f2558b7d3cb0",
+        "type": "capsule",
+        "title": "Time Capsule Locked \ud83d\udc8c",
+        "message": "Your capsule \"Alice Capsule For 2040\" is locked safely until 2040-01-01",
+        "is_read": false,
+        "created_at": "2026-10-28 18:38:00",
+        "_id": "f1dfa40efd486c230c8bd9b2"
+    },
+    {
+        "user_id": "cbf13854728311cc6d84f98f",
+        "type": "memories",
+        "title": "Memory Added \ud83d\udcf7",
+        "message": "Added new memory \"Bob Baby First Laugh\" to your scrapbook.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:38:00",
+        "_id": "5f364154c3f447a47f577718"
+    },
+    {
+        "user_id": "cbf13854728311cc6d84f98f",
+        "type": "memories",
+        "title": "Memory Added \ud83d\udcf7",
+        "message": "Added new memory \"Cross Baby Attack\" to your scrapbook.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:38:00",
+        "_id": "74bcdcaf4b2a83fe40b8481d"
+    },
+    {
+        "user_id": "5e7c3809c035f2558b7d3cb0",
+        "type": "memories",
+        "title": "Memory Added \ud83d\udcf7",
+        "message": "Added new memory \"Temp Memory to Delete\" to your scrapbook.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:38:01",
+        "_id": "5c6f4e10f59ab6be3e5aec39"
+    },
+    {
+        "user_id": "5e7c3809c035f2558b7d3cb0",
+        "type": "milestones",
+        "title": "New Milestone Achieved! \u2b50",
+        "message": "Captured milestone: Temp Milestone to Delete",
+        "is_read": false,
+        "created_at": "2026-10-28 18:38:01",
+        "_id": "913ef22a6e1a0922f59b2c22"
+    },
+    {
+        "user_id": "5e7c3809c035f2558b7d3cb0",
+        "type": "capsule",
+        "title": "Time Capsule Locked \ud83d\udc8c",
+        "message": "Your capsule \"Temp Capsule to Delete\" is locked safely until 2030-01-01",
+        "is_read": false,
+        "created_at": "2026-10-28 18:38:01",
+        "_id": "96353dd121d3ecc2059f7e69"
+    },
+    {
+        "user_id": "5e7c3809c035f2558b7d3cb0",
+        "type": "capsule",
+        "title": "Time Capsule Locked \ud83d\udc8c",
+        "message": "Your capsule \"Past Unlocked Capsule\" is locked safely until 2020-01-01",
+        "is_read": false,
+        "created_at": "2026-10-28 18:38:01",
+        "_id": "4fe70bd14b6a23d9be1f8db1"
+    },
+    {
+        "user_id": "b5d0273f2520bad3fb3d3a44",
+        "type": "tip",
+        "title": "Welcome to TinyTales! \ud83c\udf7c",
+        "message": "Start preserving your baby's precious memories, milestones, and time capsules.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:38:20",
+        "_id": "d6eb08fb48c9da216823e4e3"
+    },
+    {
+        "user_id": "e329071ff6da3fda49c86a47",
+        "type": "tip",
+        "title": "Welcome to TinyTales! \ud83c\udf7c",
+        "message": "Start preserving your baby's precious memories, milestones, and time capsules.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:38:21",
+        "_id": "0cb0d2dc7eeb1fee368891af"
+    },
+    {
+        "user_id": "c76517fa43d76157437f1350",
+        "type": "tip",
+        "title": "Welcome to TinyTales! \ud83c\udf7c",
+        "message": "Start preserving your baby's precious memories, milestones, and time capsules.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:38:21",
+        "_id": "6dbf897c01026c75d1eb004f"
+    },
+    {
+        "user_id": "e329071ff6da3fda49c86a47",
+        "type": "memories",
+        "title": "Memory Added \ud83d\udcf7",
+        "message": "Added new memory \"Alice Secret Memory #1\" to your scrapbook.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:38:21",
+        "_id": "2f3d7a17fcaa83dc6a6d4337"
+    },
+    {
+        "user_id": "e329071ff6da3fda49c86a47",
+        "type": "milestones",
+        "title": "New Milestone Achieved! \u2b50",
+        "message": "Captured milestone: Alice First Steps",
+        "is_read": false,
+        "created_at": "2026-10-28 18:38:21",
+        "_id": "9facf00e1c0acc9674d0b122"
+    },
+    {
+        "user_id": "e329071ff6da3fda49c86a47",
+        "type": "capsule",
+        "title": "Time Capsule Locked \ud83d\udc8c",
+        "message": "Your capsule \"Alice Capsule For 2040\" is locked safely until 2040-01-01",
+        "is_read": false,
+        "created_at": "2026-10-28 18:38:21",
+        "_id": "243f1d3955ce7f86a1845215"
+    },
+    {
+        "user_id": "c76517fa43d76157437f1350",
+        "type": "memories",
+        "title": "Memory Added \ud83d\udcf7",
+        "message": "Added new memory \"Bob Baby First Laugh\" to your scrapbook.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:38:21",
+        "_id": "67ad8ccc57f5d9130e279e70"
+    },
+    {
+        "user_id": "c76517fa43d76157437f1350",
+        "type": "memories",
+        "title": "Memory Added \ud83d\udcf7",
+        "message": "Added new memory \"Cross Baby Attack\" to your scrapbook.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:38:21",
+        "_id": "5e9e8d0cb73797cf23bc49dd"
+    },
+    {
+        "user_id": "e329071ff6da3fda49c86a47",
+        "type": "memories",
+        "title": "Memory Added \ud83d\udcf7",
+        "message": "Added new memory \"Temp Memory to Delete\" to your scrapbook.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:38:22",
+        "_id": "81ad2684fbedba0700eb2ee4"
+    },
+    {
+        "user_id": "e329071ff6da3fda49c86a47",
+        "type": "milestones",
+        "title": "New Milestone Achieved! \u2b50",
+        "message": "Captured milestone: Temp Milestone to Delete",
+        "is_read": false,
+        "created_at": "2026-10-28 18:38:22",
+        "_id": "ac3ecb92d99055d554c5b2d2"
+    },
+    {
+        "user_id": "e329071ff6da3fda49c86a47",
+        "type": "capsule",
+        "title": "Time Capsule Locked \ud83d\udc8c",
+        "message": "Your capsule \"Temp Capsule to Delete\" is locked safely until 2030-01-01",
+        "is_read": false,
+        "created_at": "2026-10-28 18:38:22",
+        "_id": "80d8638d6a102431879f9784"
+    },
+    {
+        "user_id": "e329071ff6da3fda49c86a47",
+        "type": "capsule",
+        "title": "Time Capsule Locked \ud83d\udc8c",
+        "message": "Your capsule \"Past Unlocked Capsule\" is locked safely until 2020-01-01",
+        "is_read": false,
+        "created_at": "2026-10-28 18:38:22",
+        "_id": "641b11e9e41e6112a572ed6f"
+    },
+    {
+        "user_id": "b88fa4848b6966a33f788b4f",
+        "type": "tip",
+        "title": "Welcome to TinyTales! \ud83c\udf7c",
+        "message": "Start preserving your baby's precious memories, milestones, and time capsules.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:39:20",
+        "_id": "e7cbb0277b318b209c608f03"
+    },
+    {
+        "user_id": "39c96c1b417d4a61267272fa",
+        "type": "tip",
+        "title": "Welcome to TinyTales! \ud83c\udf7c",
+        "message": "Start preserving your baby's precious memories, milestones, and time capsules.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:39:21",
+        "_id": "7126894e044c5568cc89cb41"
+    },
+    {
+        "user_id": "3976c8a124ad4f1bcb5a2c1b",
+        "type": "tip",
+        "title": "Welcome to TinyTales! \ud83c\udf7c",
+        "message": "Start preserving your baby's precious memories, milestones, and time capsules.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:39:21",
+        "_id": "34b1f64c0e5b46d35b8fe19f"
+    },
+    {
+        "user_id": "39c96c1b417d4a61267272fa",
+        "type": "memories",
+        "title": "Memory Added \ud83d\udcf7",
+        "message": "Added new memory \"Alice Secret Memory #1\" to your scrapbook.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:39:22",
+        "_id": "0cd2a736f0f91f969ef4cabd"
+    },
+    {
+        "user_id": "39c96c1b417d4a61267272fa",
+        "type": "milestones",
+        "title": "New Milestone Achieved! \u2b50",
+        "message": "Captured milestone: Alice First Steps",
+        "is_read": false,
+        "created_at": "2026-10-28 18:39:22",
+        "_id": "348ac2c9daec63f44bc338d5"
+    },
+    {
+        "user_id": "39c96c1b417d4a61267272fa",
+        "type": "capsule",
+        "title": "Time Capsule Locked \ud83d\udc8c",
+        "message": "Your capsule \"Alice Capsule For 2040\" is locked safely until 2040-01-01",
+        "is_read": false,
+        "created_at": "2026-10-28 18:39:22",
+        "_id": "d40973a42e3e6f5571fa9c21"
+    },
+    {
+        "user_id": "3976c8a124ad4f1bcb5a2c1b",
+        "type": "memories",
+        "title": "Memory Added \ud83d\udcf7",
+        "message": "Added new memory \"Bob Baby First Laugh\" to your scrapbook.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:39:22",
+        "_id": "8bb310b6df4afdd837e20d97"
+    },
+    {
+        "user_id": "3976c8a124ad4f1bcb5a2c1b",
+        "type": "memories",
+        "title": "Memory Added \ud83d\udcf7",
+        "message": "Added new memory \"Cross Baby Attack\" to your scrapbook.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:39:22",
+        "_id": "db24170af59a7d787698f963"
+    },
+    {
+        "user_id": "39c96c1b417d4a61267272fa",
+        "type": "memories",
+        "title": "Memory Added \ud83d\udcf7",
+        "message": "Added new memory \"Temp Memory to Delete\" to your scrapbook.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:39:22",
+        "_id": "72eb9ff21c13ae49e42e9c95"
+    },
+    {
+        "user_id": "39c96c1b417d4a61267272fa",
+        "type": "milestones",
+        "title": "New Milestone Achieved! \u2b50",
+        "message": "Captured milestone: Temp Milestone to Delete",
+        "is_read": false,
+        "created_at": "2026-10-28 18:39:22",
+        "_id": "0ef45a5f756fbf10fa99c9e9"
+    },
+    {
+        "user_id": "39c96c1b417d4a61267272fa",
+        "type": "capsule",
+        "title": "Time Capsule Locked \ud83d\udc8c",
+        "message": "Your capsule \"Temp Capsule to Delete\" is locked safely until 2030-01-01",
+        "is_read": false,
+        "created_at": "2026-10-28 18:39:22",
+        "_id": "b9533faff883a4485e4196e5"
+    },
+    {
+        "user_id": "39c96c1b417d4a61267272fa",
+        "type": "capsule",
+        "title": "Time Capsule Locked \ud83d\udc8c",
+        "message": "Your capsule \"Past Unlocked Capsule\" is locked safely until 2020-01-01",
+        "is_read": false,
+        "created_at": "2026-10-28 18:39:22",
+        "_id": "9e6820c9b72b020d3bc68873"
+    },
+    {
+        "user_id": "a1150c51e5055619dde4685e",
+        "type": "tip",
+        "title": "Welcome to TinyTales! \ud83c\udf7c",
+        "message": "Start preserving your baby's precious memories, milestones, and time capsules.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:39:51",
+        "_id": "47d7edbea401a2ff0b038e81"
+    },
+    {
+        "user_id": "fe7dcf92540b14e663d4114d",
+        "type": "tip",
+        "title": "Welcome to TinyTales! \ud83c\udf7c",
+        "message": "Start preserving your baby's precious memories, milestones, and time capsules.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:39:52",
+        "_id": "86e7250b764a8a854b853030"
+    },
+    {
+        "user_id": "413489f7930bb533315ca2b4",
+        "type": "tip",
+        "title": "Welcome to TinyTales! \ud83c\udf7c",
+        "message": "Start preserving your baby's precious memories, milestones, and time capsules.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:39:52",
+        "_id": "f309a34cf2e0c1aac133f508"
+    },
+    {
+        "user_id": "fe7dcf92540b14e663d4114d",
+        "type": "memories",
+        "title": "Memory Added \ud83d\udcf7",
+        "message": "Added new memory \"Alice Secret Memory #1\" to your scrapbook.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:39:52",
+        "_id": "011b98fa815521699570d774"
+    },
+    {
+        "user_id": "fe7dcf92540b14e663d4114d",
+        "type": "milestones",
+        "title": "New Milestone Achieved! \u2b50",
+        "message": "Captured milestone: Alice First Steps",
+        "is_read": false,
+        "created_at": "2026-10-28 18:39:52",
+        "_id": "c01db642027ed2e0fb90a16c"
+    },
+    {
+        "user_id": "fe7dcf92540b14e663d4114d",
+        "type": "capsule",
+        "title": "Time Capsule Locked \ud83d\udc8c",
+        "message": "Your capsule \"Alice Capsule For 2040\" is locked safely until 2040-01-01",
+        "is_read": false,
+        "created_at": "2026-10-28 18:39:52",
+        "_id": "2cea97caf67815df38287428"
+    },
+    {
+        "user_id": "413489f7930bb533315ca2b4",
+        "type": "memories",
+        "title": "Memory Added \ud83d\udcf7",
+        "message": "Added new memory \"Bob Baby First Laugh\" to your scrapbook.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:39:52",
+        "_id": "862d93d0a152c05194b5e4f6"
+    },
+    {
+        "user_id": "413489f7930bb533315ca2b4",
+        "type": "memories",
+        "title": "Memory Added \ud83d\udcf7",
+        "message": "Added new memory \"Cross Baby Attack\" to your scrapbook.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:39:52",
+        "_id": "eac88462a280152cd0cfbf19"
+    },
+    {
+        "user_id": "fe7dcf92540b14e663d4114d",
+        "type": "memories",
+        "title": "Memory Added \ud83d\udcf7",
+        "message": "Added new memory \"Temp Memory to Delete\" to your scrapbook.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:39:52",
+        "_id": "98775006ce2c4b3289ccba93"
+    },
+    {
+        "user_id": "fe7dcf92540b14e663d4114d",
+        "type": "milestones",
+        "title": "New Milestone Achieved! \u2b50",
+        "message": "Captured milestone: Temp Milestone to Delete",
+        "is_read": false,
+        "created_at": "2026-10-28 18:39:52",
+        "_id": "2e65e472fcfe842004302a13"
+    },
+    {
+        "user_id": "fe7dcf92540b14e663d4114d",
+        "type": "capsule",
+        "title": "Time Capsule Locked \ud83d\udc8c",
+        "message": "Your capsule \"Temp Capsule to Delete\" is locked safely until 2030-01-01",
+        "is_read": false,
+        "created_at": "2026-10-28 18:39:52",
+        "_id": "62575b70109277ab081aeede"
+    },
+    {
+        "user_id": "fe7dcf92540b14e663d4114d",
+        "type": "capsule",
+        "title": "Time Capsule Locked \ud83d\udc8c",
+        "message": "Your capsule \"Past Unlocked Capsule\" is locked safely until 2020-01-01",
+        "is_read": false,
+        "created_at": "2026-10-28 18:39:53",
+        "_id": "be761b01d79110b83bf6a01e"
+    },
+    {
+        "user_id": "f0a7f37267147b9e992840fc",
+        "type": "memories",
+        "title": "Memory Added \ud83d\udcf7",
+        "message": "Added new memory \"CHile cha baal\" to your scrapbook.",
+        "is_read": false,
+        "created_at": "2026-10-28 18:45:07",
+        "_id": "f5b43c37903047de805f92b7"
+    }
+]

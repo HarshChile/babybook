@@ -40,14 +40,14 @@
   <header>
     <div>
       <h1>Settings ⚙️</h1>
-      <p>Customize your TinyTales baby scrapbook experience and notification preferences</p>
+      <p>Manage your family profile details and account security settings</p>
     </div>
     <button class="save-settings-btn" id="saveSettingsBtn" onclick="saveSettings()">Save Changes</button>
   </header>
 
   <div class="settings-grid">
 
-    <!-- CARD 1: PROFILE PREFERENCES -->
+    <!-- CARD 1: PROFILE & FAMILY -->
     <div class="settings-card">
       <div class="settings-card-header">
         <div class="settings-card-icon">👶</div>
@@ -65,93 +65,56 @@
       </div>
 
       <div class="form-group" style="margin-top:20px;">
-        <label>Baby Profile Details</label>
-        <p style="font-size:13px; color:#666; margin-bottom:10px;">Update baby's birthdate, parent names, and avatar picture.</p>
+        <label>Baby Growth Details</label>
+        <p style="font-size:13px; color:#666; margin-bottom:12px;">Update baby's birthdate, parent names, and avatar photo.</p>
         <a href="profile.html" style="color:#DD2D4A; font-size:14px; font-weight:600; text-decoration:none;">Go to Baby Profile Page →</a>
       </div>
-    </div>
 
-    <!-- CARD 2: NOTIFICATIONS -->
-    <div class="settings-card">
-      <div class="settings-card-header">
-        <div class="settings-card-icon">🔔</div>
-        <h2>Notifications & Alerts</h2>
-      </div>
-
-      <div class="toggle-item">
-        <div class="toggle-info">
-          <strong>Email Alerts</strong>
-          <span>Receive milestone reminders and updates via email</span>
-        </div>
-        <label class="switch">
-          <input type="checkbox" id="emailToggle" checked>
-          <span class="slider"></span>
-        </label>
-      </div>
-
-      <div class="toggle-item">
-        <div class="toggle-info">
-          <strong>Milestone Reminders</strong>
-          <span>Timely nudges to capture monthly developmental firsts</span>
-        </div>
-        <label class="switch">
-          <input type="checkbox" id="milestoneToggle" checked>
-          <span class="slider"></span>
-        </label>
-      </div>
-
-      <div class="toggle-item">
-        <div class="toggle-info">
-          <strong>Time Capsule Reminders</strong>
-          <span>Notifications when a locked memory capsule is ready</span>
-        </div>
-        <label class="switch">
-          <input type="checkbox" id="capsuleToggle" checked>
-          <span class="slider"></span>
-        </label>
-      </div>
-    </div>
-
-    <!-- CARD 3: PRIVACY & DATA -->
-    <div class="settings-card">
-      <div class="settings-card-header">
-        <div class="settings-card-icon">🔒</div>
-        <h2>Privacy & Protection</h2>
-      </div>
-
-      <div class="toggle-item">
-        <div class="toggle-info">
-          <strong>Private Memories</strong>
-          <span>Keep all uploaded photos and journal notes private</span>
-        </div>
-        <label class="switch">
-          <input type="checkbox" id="privacyToggle" checked>
-          <span class="slider"></span>
-        </label>
-      </div>
-
-      <div class="toggle-item">
-        <div class="toggle-info">
-          <strong>High-Resolution Photo Storage</strong>
-          <span>Preserve original photo resolution on disk</span>
-        </div>
-        <label class="switch">
-          <input type="checkbox" id="hdPhotoToggle" checked>
-          <span class="slider"></span>
-        </label>
-      </div>
-
-      <div style="margin-top:20px; padding-top:15px; border-top:1px solid #f0d0d0;">
+      <div style="margin-top:auto; padding-top:20px;">
         <button type="button" onclick="saveSettings()" style="width:100%; background:#8b0f1f; color:#fff; border:none; padding:12px; border-radius:12px; font-weight:600; cursor:pointer;">
-          💾 Save All Settings
+          💾 Save Profile Changes
         </button>
       </div>
+    </div>
+
+    <!-- CARD 2: ACCOUNT SECURITY -->
+    <div class="settings-card">
+      <div class="settings-card-header">
+        <div class="settings-card-icon">🔐</div>
+        <h2>Account Security</h2>
+      </div>
+
+      <div id="pwdMsg" style="display:none; padding:10px 12px; border-radius:8px; font-size:13px; margin-bottom:12px;"></div>
+
+      <form id="changePasswordForm" onsubmit="event.preventDefault(); changePassword();">
+        <div class="form-group">
+          <label for="currentPassword">Current Password</label>
+          <input type="password" id="currentPassword" placeholder="Enter current password" required>
+        </div>
+
+        <div class="form-group">
+          <label for="newPassword">New Password</label>
+          <input type="password" id="newPassword" placeholder="Minimum 6 characters" required>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmNewPassword">Confirm New Password</label>
+          <input type="password" id="confirmNewPassword" placeholder="Re-enter new password" required>
+        </div>
+
+        <div style="margin-top:auto; padding-top:20px;">
+          <button type="submit" id="changePwdBtn" style="width:100%; background:#d45a6a; color:#fff; border:none; padding:12px; border-radius:12px; font-weight:600; cursor:pointer;">
+            🔑 Update Password
+          </button>
+        </div>
+      </form>
     </div>
 
   </div>
 
 </main>
 
+<script src="api-client.js"></script>
 <script src="settings.js"></script>
 </body>
 </html>

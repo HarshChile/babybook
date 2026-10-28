@@ -4,12 +4,25 @@ echo ========================================================
 echo Starting TinyTales BabyBook Web Server...
 echo ========================================================
 echo.
-echo Make sure your MongoDB connection is configured in .env
-echo Photos are stored on disk in uploads/
-echo Database pointers and metadata are stored in MongoDB
+
+where php >nul 2>nul
+if %ERRORLEVEL% neq 0 (
+    echo [ERROR] PHP was not found in your system PATH!
+    echo.
+    echo Please install PHP 8.3 in PowerShell:
+    echo   winget install PHP.PHP.8.3 --accept-source-agreements --accept-package-agreements
+    echo.
+    pause
+    exit /b
+)
+
+echo Running database integrity checks...
+php migrate.php
 echo.
 echo Server running at: http://localhost:8000/home.html
-echo Press Ctrl+C to stop the server.
+echo Database: Local JSON fallback active in data/ (or MongoDB if configured)
+echo Opening your browser to http://localhost:8000/home.html ...
 echo.
+start "" http://localhost:8000/home.html
 php -S localhost:8000
 pause

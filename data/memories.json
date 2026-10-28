@@ -7,7 +7,8 @@
         "photo_path": "https://images.unsplash.com/photo-1519689680058-324335c77eba?w=600&auto=format&fit=crop&q=80",
         "is_favorite": true,
         "created_at": "2026-01-12 10:30:00",
-        "_id": "6192d7cc4292a1ebc6d8d198"
+        "_id": "6192d7cc4292a1ebc6d8d198",
+        "user_id": "9ebf0a86eae7f9238313d276"
     },
     {
         "title": "First Roll Over",
@@ -17,7 +18,8 @@
         "photo_path": "https://images.unsplash.com/photo-1544126592-807ade215a0b?w=600&auto=format&fit=crop&q=80",
         "is_favorite": true,
         "created_at": "2026-02-04 14:15:00",
-        "_id": "1a24e94f7b67bd274dae7378"
+        "_id": "1a24e94f7b67bd274dae7378",
+        "user_id": "9ebf0a86eae7f9238313d276"
     },
     {
         "title": "First Trip to the Park",
@@ -27,7 +29,8 @@
         "photo_path": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&auto=format&fit=crop&q=80",
         "is_favorite": false,
         "created_at": "2026-02-20 16:40:00",
-        "_id": "a68898b8d07f3316da99143d"
+        "_id": "a68898b8d07f3316da99143d",
+        "user_id": "9ebf0a86eae7f9238313d276"
     },
     {
         "title": "Six Months Celebration! \ud83c\udf82",
@@ -37,7 +40,8 @@
         "photo_path": "https://images.unsplash.com/photo-1555252333-978fead06c00?w=600&auto=format&fit=crop&q=80",
         "is_favorite": true,
         "created_at": "2026-03-01 11:00:00",
-        "_id": "0220d478efd12887c2af3391"
+        "_id": "0220d478efd12887c2af3391",
+        "user_id": "9ebf0a86eae7f9238313d276"
     },
     {
         "title": "First BDay",
@@ -47,6 +51,210 @@
         "photo_path": "uploads/photos/1791905729_5f58853f.png",
         "is_favorite": false,
         "created_at": "2026-10-13 15:35:29",
-        "_id": "ee20fede3e509dd224f0fec2"
+        "_id": "ee20fede3e509dd224f0fec2",
+        "user_id": "9ebf0a86eae7f9238313d276"
+    },
+    {
+        "title": "Chile ch first baal",
+        "description": "Chile ch pahila vahila baal.",
+        "date": "2026-10-28",
+        "category": "Firsts",
+        "photo_path": "uploads/photos/1793206540_41e6d704.jpg",
+        "is_favorite": false,
+        "created_at": "2026-10-28 16:55:40",
+        "_id": "c9e5a83677c6e0cd53e32c78",
+        "user_id": "9ebf0a86eae7f9238313d276"
+    },
+    {
+        "user_id": "66a3942377e4c564e5aa2060",
+        "baby_id": "4671bfb7b396f4ebe7920af4",
+        "title": "Alice Secret Memory #1",
+        "description": "Alice private note about first tooth",
+        "date": "2026-05-12",
+        "category": "Milestone",
+        "photo_path": "uploads/photos/alice_photo.jpg",
+        "is_favorite": true,
+        "created_at": "2026-10-28 18:37:49",
+        "_id": "2fdec1226f1cff8d85ec8b4c"
+    },
+    {
+        "user_id": "022b0664b8d2bb95a8a552d7",
+        "baby_id": "a6fc717ff409f3cba8f2a12a",
+        "title": "Bob Baby First Laugh",
+        "description": "Bob personal note",
+        "date": "2026-07-01",
+        "category": "Milestone",
+        "photo_path": "uploads/photos/bob_photo.jpg",
+        "is_favorite": false,
+        "created_at": "2026-10-28 18:37:49",
+        "_id": "3dfffb57b3233f3dbba1fdaa"
+    },
+    {
+        "user_id": "022b0664b8d2bb95a8a552d7",
+        "baby_id": "a6fc717ff409f3cba8f2a12a",
+        "title": "Cross Baby Attack",
+        "description": "",
+        "date": "2026-10-28",
+        "category": "Milestone",
+        "photo_path": "uploads/photos/cross.jpg",
+        "is_favorite": false,
+        "created_at": "2026-10-28 18:37:49",
+        "_id": "50c8770222e80b43ff9f3e30"
+    },
+    {
+        "user_id": "5e7c3809c035f2558b7d3cb0",
+        "baby_id": "126680face7b9ec666c86edb",
+        "title": "Alice Secret Memory #1",
+        "description": "Alice private note about first tooth",
+        "date": "2026-05-12",
+        "category": "Milestone",
+        "photo_path": "uploads/photos/alice_photo.jpg",
+        "is_favorite": true,
+        "created_at": "2026-10-28 18:38:00",
+        "_id": "0ddfc16c9f4df7a6ae82365d"
+    },
+    {
+        "user_id": "cbf13854728311cc6d84f98f",
+        "baby_id": "65c22db4f66ee5da7a62cb9f",
+        "title": "Bob Baby First Laugh",
+        "description": "Bob personal note",
+        "date": "2026-07-01",
+        "category": "Milestone",
+        "photo_path": "uploads/photos/bob_photo.jpg",
+        "is_favorite": false,
+        "created_at": "2026-10-28 18:38:00",
+        "_id": "f38a30d984f2a818b9788702"
+    },
+    {
+        "user_id": "cbf13854728311cc6d84f98f",
+        "baby_id": "65c22db4f66ee5da7a62cb9f",
+        "title": "Cross Baby Attack",
+        "description": "",
+        "date": "2026-10-28",
+        "category": "Milestone",
+        "photo_path": "uploads/photos/cross.jpg",
+        "is_favorite": false,
+        "created_at": "2026-10-28 18:38:00",
+        "_id": "0b65f85e222056629bb12424"
+    },
+    {
+        "user_id": "e329071ff6da3fda49c86a47",
+        "baby_id": "640cea5ad97edda8487f4cff",
+        "title": "Alice Secret Memory #1",
+        "description": "Alice private note about first tooth",
+        "date": "2026-05-12",
+        "category": "Milestone",
+        "photo_path": "uploads/photos/alice_photo.jpg",
+        "is_favorite": true,
+        "created_at": "2026-10-28 18:38:21",
+        "_id": "c1c8d67057f08623c1b88179"
+    },
+    {
+        "user_id": "c76517fa43d76157437f1350",
+        "baby_id": "33b25a36feddc1f143c5d82f",
+        "title": "Bob Baby First Laugh",
+        "description": "Bob personal note",
+        "date": "2026-07-01",
+        "category": "Milestone",
+        "photo_path": "uploads/photos/bob_photo.jpg",
+        "is_favorite": false,
+        "created_at": "2026-10-28 18:38:21",
+        "_id": "4cd6c8562a5665165971ff2a"
+    },
+    {
+        "user_id": "c76517fa43d76157437f1350",
+        "baby_id": "33b25a36feddc1f143c5d82f",
+        "title": "Cross Baby Attack",
+        "description": "",
+        "date": "2026-10-28",
+        "category": "Milestone",
+        "photo_path": "uploads/photos/cross.jpg",
+        "is_favorite": false,
+        "created_at": "2026-10-28 18:38:21",
+        "_id": "fe1e60f97ad9cd3f66760e0b"
+    },
+    {
+        "user_id": "39c96c1b417d4a61267272fa",
+        "baby_id": "10aba0995543ec42a72a23bd",
+        "title": "Alice Secret Memory #1",
+        "description": "Alice private note about first tooth",
+        "date": "2026-05-12",
+        "category": "Milestone",
+        "photo_path": "uploads/photos/alice_photo.jpg",
+        "is_favorite": true,
+        "created_at": "2026-10-28 18:39:22",
+        "_id": "77d34377221240be6658276b"
+    },
+    {
+        "user_id": "3976c8a124ad4f1bcb5a2c1b",
+        "baby_id": "507e29074a19bd19703b0e95",
+        "title": "Bob Baby First Laugh",
+        "description": "Bob personal note",
+        "date": "2026-07-01",
+        "category": "Milestone",
+        "photo_path": "uploads/photos/bob_photo.jpg",
+        "is_favorite": false,
+        "created_at": "2026-10-28 18:39:22",
+        "_id": "515272b7ae9747e8fd00aa1f"
+    },
+    {
+        "user_id": "3976c8a124ad4f1bcb5a2c1b",
+        "baby_id": "507e29074a19bd19703b0e95",
+        "title": "Cross Baby Attack",
+        "description": "",
+        "date": "2026-10-28",
+        "category": "Milestone",
+        "photo_path": "uploads/photos/cross.jpg",
+        "is_favorite": false,
+        "created_at": "2026-10-28 18:39:22",
+        "_id": "212bbfe5232d6de9cef63b52"
+    },
+    {
+        "user_id": "fe7dcf92540b14e663d4114d",
+        "baby_id": "107a7a99a16c3a75ce9ba5d1",
+        "title": "Alice Secret Memory #1",
+        "description": "Alice private note about first tooth",
+        "date": "2026-05-12",
+        "category": "Milestone",
+        "photo_path": "uploads/photos/alice_photo.jpg",
+        "is_favorite": true,
+        "created_at": "2026-10-28 18:39:52",
+        "_id": "efbed3629f435d29132869db"
+    },
+    {
+        "user_id": "413489f7930bb533315ca2b4",
+        "baby_id": "e0e7dc1dcb419df9a84787d7",
+        "title": "Bob Baby First Laugh",
+        "description": "Bob personal note",
+        "date": "2026-07-01",
+        "category": "Milestone",
+        "photo_path": "uploads/photos/bob_photo.jpg",
+        "is_favorite": false,
+        "created_at": "2026-10-28 18:39:52",
+        "_id": "8c35ff3051722c55563b7431"
+    },
+    {
+        "user_id": "413489f7930bb533315ca2b4",
+        "baby_id": "e0e7dc1dcb419df9a84787d7",
+        "title": "Cross Baby Attack",
+        "description": "",
+        "date": "2026-10-28",
+        "category": "Milestone",
+        "photo_path": "uploads/photos/cross.jpg",
+        "is_favorite": false,
+        "created_at": "2026-10-28 18:39:52",
+        "_id": "8cf83e56837ab2f6c46f7dc9"
+    },
+    {
+        "user_id": "f0a7f37267147b9e992840fc",
+        "baby_id": "b0e1e6c71452d7e8b9ff6028",
+        "title": "CHile cha baal",
+        "description": "chotu chile",
+        "date": "2026-10-28",
+        "category": "Milestone",
+        "photo_path": "uploads/photos/1793213107_389eca07.jpg",
+        "is_favorite": false,
+        "created_at": "2026-10-28 18:45:07",
+        "_id": "538c7cbfbb37ce5c0cdf68a1"
     }
 ]

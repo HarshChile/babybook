@@ -4,9 +4,49 @@
  * BabyBook / TinyTales
  */
 
-// Start session if not active
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
+// Start session if not active with secure cookie parameters
+if (session_status() === PHP_SESSION_NONE && !headers_sent()) {
+    $secure = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ||
+              (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https');
+    @session_set_cookie_params([
+        'lifetime' => 0,
+        'path' => '/',
+        'domain' => '',
+        'secure' => $secure,
+        'httponly' => true,
+        'samesite' => 'Lax'
+    ]);
+    @session_start();
+} elseif (session_status() === PHP_SESSION_NONE) {
+    @session_start();
+}
+
+// Enable CORS for local development across ports (e.g. Live Server on port 5500 <-> PHP on port 8000)
+if (!headers_sent()) {
+    if (isset($_SERVER['HTTP_ORIGIN'])) {
+        @header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
+        @header("Access-Control-Allow-Credentials: true");
+        @header("Access-Control-Max-Age: 86400");
+    } else {
+        @header("Access-Control-Allow-Origin: *");
+    }
+    @header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+    @header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With, Accept");
+}
+
+class TestingExitException extends \Exception {}
+
+function safeExit() {
+    if (defined('TESTING_MODE')) {
+        throw new TestingExitException();
+    }
+    exit;
+}
+
+// Handle preflight OPTIONS requests immediately
+if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    safeExit();
 }
 
 // Basic error reporting
@@ -71,10 +111,13 @@ foreach ($subDirs as $sub) {
  * Send JSON HTTP Response
  */
 function jsonResponse($data, $status = 200) {
-    http_response_code($status);
-    header('Content-Type: application/json; charset=utf-8');
+    $GLOBALS['LAST_RESPONSE_CODE'] = $status;
+    if (!headers_sent()) {
+        http_response_code($status);
+        @header('Content-Type: application/json; charset=utf-8');
+    }
     echo json_encode($data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-    exit;
+    safeExit();
 }
 
 /**
