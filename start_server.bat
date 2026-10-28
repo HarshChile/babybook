@@ -13,9 +13,6 @@ if %ERRORLEVEL% neq 0 (
     echo Please install PHP 8.3 in PowerShell:
     echo   winget install PHP.PHP.8.3 --accept-source-agreements --accept-package-agreements
     echo.
-    echo If already installed via winget, restart your command prompt or run:
-    echo   set PATH=%%PATH%%;%%LOCALAPPDATA%%\Microsoft\WinGet\Packages\PHP.PHP.8.3_Microsoft.Winget.Source_8wekyb3d8bbwe
-    echo.
     pause
     exit /b 1
 )
@@ -29,12 +26,13 @@ for /f "tokens=5" %%a in ('netstat -aon 2^>nul ^| findstr :8000 ^| findstr LISTE
 
 REM 3. Run database migrations to ensure all data has verified ownership
 echo Running database integrity checks...
-php -d display_startup_errors=0 migrate.php
+php -c php.ini migrate.php
 echo.
 
 REM 4. Launch the application
 echo ========================================================
 echo TinyTales server is ready!
+echo Database: Self-contained JSON (No MongoDB installation required)
 echo URL: http://localhost:8000/home.html
 echo ========================================================
 echo.
@@ -44,5 +42,5 @@ start "" "http://localhost:8000/home.html"
 echo Starting PHP built-in web server on port 8000...
 echo (Press Ctrl+C in this window anytime to stop the server)
 echo.
-php -d display_startup_errors=0 -S localhost:8000 router.php
+php -c php.ini -S localhost:8000 router.php
 pause

@@ -34,19 +34,20 @@ if ($connections) {
 
 # 3. Run safe migration
 Write-Host "Running database integrity checks..." -ForegroundColor Gray
-php -d display_startup_errors=0 migrate.php
+php -c php.ini migrate.php
 Write-Host ""
 
 # 4. Start Server
 Write-Host "========================================================" -ForegroundColor Green
 Write-Host "TinyTales server is ready!" -ForegroundColor Green
+Write-Host "Database: Self-contained JSON (No MongoDB installation required)" -ForegroundColor Green
 Write-Host "URL: http://localhost:8000/home.html" -ForegroundColor Green
 Write-Host "========================================================" -ForegroundColor Green
 Write-Host ""
 Write-Host "Opening browser..." -ForegroundColor Cyan
 Start-Process "http://localhost:8000/home.html"
 
-Write-Host "Starting PHP built-in web server on port 8000 (router active)..." -ForegroundColor White
+Write-Host "Starting PHP built-in web server on port 8000..." -ForegroundColor White
 Write-Host "(Press Ctrl+C to stop the server anytime)" -ForegroundColor Gray
 Write-Host ""
-php -d display_startup_errors=0 -S localhost:8000 router.php
+php -c php.ini -S localhost:8000 router.php
